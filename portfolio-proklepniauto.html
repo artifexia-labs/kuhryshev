@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: ProklepniAuto.cz | KUHRYSHEV</title>
+    <meta name="description" content="Případová studie vývoje AI asistenta pro nákup ojetých vozů. Zjistěte, jak jsme využili React, Supabase a AI pro vytvoření komplexní webové aplikace.">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/case-study-auto.css"> 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">KUHRYSHEV</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="sluzby.html" class="nav-link">Služby</a></li>
+                <li class="nav-item"><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                <li class="nav-item"><a href="o-nas.html" class="nav-link">O nás</a></li>
+                <li class="nav-item"><a href="proces.html" class="nav-link">Proces</a></li>
+                <li class="nav-item"><a href="kontakt.html" class="btn">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+    <main>
+        <section id="case-study-hero" style="background-image: linear-gradient(rgba(15, 12, 41, 0.8), rgba(15, 12, 41, 0.8)), url('auto-pc.png');">
+            <div class="container">
+                <h1 class="case-study-title">ProklepniAuto.cz</h1>
+                <p class="case-study-subtitle">Od nejistoty k sebevědomému nákupu vozu díky AI.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container case-study-container">
+                <div class="case-study-content">
+                    <div class="project-overview">
+                        <div class="overview-item"><h4>Projekt</h4><p>ProklepniAuto.cz</p></div>
+                        <div class="overview-item"><h4>Typ</h4><p>Osobní projekt / Webová aplikace</p></div>
+                        <div class="overview-item"><h4>Rok</h4><p>2025</p></div>
+                        <div class="overview-item"><h4>Odkaz</h4><p><a href="https://proklepniauto.cz" target="_blank" class="live-link">Živá verze &rarr;</a></p></div>
+                    </div>
+
+                    <h2>Výzva: Informační chaos na trhu s ojetinami</h2>
+                    <p>Nápad на projekt se zrodil z osobní zkušenosti. Jako student, který si poprvé hledal auto, jsem čelil obrovskému problému: trh s ojetými vozy je džungle. Informace jsou roztříštěné po desítkách webů, inzeráty často neúplné a bez pomoci experta je téměř nemožné posoudit, zda je cena adekvátní.</p>
+                    
+                    <h2>Naše Řešení: Osobní AI asistent pro nákup vozu</h2>
+                    <p>Vytvořili jsme webovou platformu ProklepniAuto.cz, která funguje jako inteligentní pomocník. Jádrem je komplexní systém postavený na moderních a efektivních technologiích. Zaměřili jsme se na tři klíčové pilíře:</p>
+
+                    <div class="solution-highlights">
+                        <div class="highlight-item"><i class="fas fa-brain"></i><h4>Inteligentní vyhledávání</h4><p>Uživatel popíše svůj vysněný vůz běžnou řečí a náš "AI Stratég" (<code>call-gemini-strategist</code>) požadavek analyzuje a převede ho na přesné vyhledávací filtry.</p></div>
+                        <div class="highlight-item"><i class="fas fa-server"></i><h4>Robustní Backend</h4><p>Veškerá serverová logika běží na <strong>Supabase Functions</strong>. Využili jsme databázi <strong>PostgreSQL</strong> s triggery a Row Level Security pro bezpečné oddělení uživatelských dat.</p></div>
+                        <div class="highlight-item"><i class="fas fa-cogs"></i><h4>Hloubková AI Analýza</h4><p>"AI Inspektor" (<code>call-gemini-inspector</code>) odhaluje klady, zápory, hodnotí cenu a připravuje pro uživatele klíčové otázky na prodejce.</p></div>
+                    </div>
+
+                    <div class="device-showcase">
+                        <div class="showcase-item showcase-pc">
+                            <img src="auto-pc.png" alt="ProklepniAuto na PC">
+                        </div>
+                        <div class="showcase-item showcase-mobile">
+                            <img src="auto-mobile.png" alt="ProklepniAuto na mobilu">
+                        </div>
+                    </div>
+
+                    <h2>Výsledek: Cenné zkušenosti a funkční produkt</h2>
+                    <p>Vývoj ProklepniAuto.cz se stal tvorbou plnohodnotného produktu, který řeší reálný problém. Během práce jsem získal neocenitelné zkušenosti v oblastech:</p>
+                    <ul>
+                        <li><strong>Architektura komplexních webových aplikací:</strong> Od návrhu frontendu v Reactu až po vytvoření serverové logiky a databáze.</li>
+                        <li><strong>Integrace s AI:</strong> Naučil jsem se efektivně využívat velké jazykové modely (LLM) pro analýzu nestrukturovaných textových dat.</li>
+                        <li><strong>Práce se Supabase:</strong> Osvojil jsem si celý technologický stack – od autentizace a správy databáze až po psaní a nasazování serverless funkcí.</li>
+                    </ul>
+                </div>
+
+                <aside class="case-study-sidebar">
+                    <h3>Použité Technologie</h3>
+                    <div class="tech-tags">
+                        <span>React.js</span>
+                        <span>Supabase</span>
+                        <span>PostgreSQL</span>
+                        <span>Serverless Functions</span>
+                        <span>Deno</span>
+                        <span>AI (Google Gemini)</span>
+                        <span>API integrace</span>
+                        <span>Web Scraping</span>
+                    </div>
+                    <a href="kontakt.html" class="btn">Máte podobný projekt?</a>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col about">
+                <a href="index.html" class="footer-logo">KUHRYSHEV</a>
+                <p class="footer-tagline">Tvoříme moderní a funkční weby, které pomáhají růst firmám v Karlovarském kraji.</p>
+                <div class="footer-socials">
+                    <a href="https://t.me/justmaksyym" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://wa.me/420603201843" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://github.com/artifexia-labs/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-col links">
+                <h4>Navigace</h4>
+                <ul>
+                    <li><a href="sluzby.html">Služby</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="o-nas.html">O nás</a></li>
+                    <li><a href="proces.html">Proces</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contact">
+                <h4>Spojte se s námi</h4>
+                <p>Máte nápad nebo dotaz? Jsme připraveni vám pomoci.</p>
+                <a href="mailto:maksym@kuhryshev.online" class="footer-email">maksym@kuhryshev.online</a>
+                <a href="kontakt.html" class="footer-contact-btn">Napsat zprávu</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 KUHRYSHEV | Vytvořeno s vášní a kódem v Chebu.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+/* === OPRAVA ZOBRAZENÍ === */
+/* Toto pravidlo přebíjí animaci zobrazení z styles.css a řeší problém s "prázdnou" stránkou */
+.content-section {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* === KONEC OPRAVY === */
+
+
+/* === Styly pro stránku Portfolio (portfolio.css) === */
+
+/* --- Hero blok pro vnitřní stránky --- */
+#page-hero { 
+    padding-top: 150px; 
+    padding-bottom: 80px; 
+    text-align: center; 
+    background: var(--dark-space); 
+}
+.page-title { 
+    font-size: 3.5rem; 
+    margin-bottom: 1rem; 
+    background: linear-gradient(90deg, var(--purple), var(--orange)); 
+    -webkit-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+}
+.page-subtitle { 
+    font-size: 1.3rem; 
+    color: var(--mid-text); 
+    max-width: 700px; 
+    margin: 0 auto; 
+}
+#portfolio-full.content-section { 
+    padding-top: 4rem; 
+}
+
+/* --- Styly filtrů --- */
+.filter-buttons {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--mid-text);
+    padding: 0.7rem 1.8rem;
+    margin: 0 0.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+.filter-btn:hover {
+    color: var(--light-text);
+    border-color: var(--purple);
+}
+.filter-btn.active {
+    background: linear-gradient(90deg, var(--purple), var(--orange));
+    color: var(--light-text);
+    border-color: transparent;
+    box-shadow: 0 0 20px var(--glow-color);
+}
+
+/* --- Nová mřížka a kartičky portfolia --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+}
+
+.portfolio-card {
+    background: var(--mid-space);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+.portfolio-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border-color: var(--purple);
+}
+
+.portfolio-image-link { display: block; }
+.portfolio-image {
+    height: 240px;
+    overflow: hidden;
+}
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.portfolio-card:hover .portfolio-image img {
+    transform: scale(1.1);
+}
+
+.portfolio-content {
+    padding: 1.5rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Roztáhne obsah, aby byl patička dole */
+}
+
+.portfolio-header {
+    margin-bottom: 1rem;
+}
+.portfolio-category {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.portfolio-header h3 {
+    font-size: 1.6rem;
+    color: var(--light-text);
+    margin: 0.25rem 0 0 0;
+}
+
+/* Nový blok "Klíčový Dosažení" */
+.portfolio-achievement {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(0,0,0,0.2);
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+}
+.portfolio-achievement i {
+    font-size: 1.5rem;
+    color: var(--purple);
+}
+.portfolio-achievement strong {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--mid-text);
+    font-weight: 500;
+}
+.portfolio-achievement span {
+    color: var(--light-text);
+    font-weight: 600;
+}
+
+.portfolio-content > p {
+    color: var(--mid-text);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; 
+}
+
+.portfolio-tags {
+    margin-bottom: 1.5rem;
+}
+.portfolio-tags span {
+    display: inline-block;
+    background-color: rgba(142, 45, 226, 0.15);
+    color: var(--purple);
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 0 0.5rem 0.5rem 0;
+}
+
+.portfolio-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto; 
+}
+
+.btn-secondary {
+    padding: 0.7rem 1.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    color: var(--light-text);
+    background: transparent;
+    border: 1px solid var(--mid-text);
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.btn-secondary:hover {
+    background: var(--purple);
+    border-color: var(--purple);
+    color: var(--light-text);
+}
+
+
+/* Adaptivita */
+@media (max-width: 768px) {
+    .page-title { font-size: 2.5rem; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+}

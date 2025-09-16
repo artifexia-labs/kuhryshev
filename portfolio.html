@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Projekty od KUHRYSHEV</title>
+    <meta name="description" content="Prohlédněte si naše vybrané projekty. Tvoříme digitální řešení, která přináší výsledky – od responzivních webů po komplexní AI aplikace.">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="nav-logo">KUHRYSHEV</a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="sluzby.html" class="nav-link">Služby</a></li>
+                    <li class="nav-item"><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                    <li class="nav-item"><a href="o-nas.html" class="nav-link">O nás</a></li>
+                    <li class="nav-item"><a href="proces.html" class="nav-link">Proces</a></li>
+                    <li class="nav-item"><a href="kontakt.html" class="btn">Kontakt</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="page-hero">
+            <div class="container">
+                <h1 class="page-title">Projekty, které tvoří hodnotu</h1>
+                <p class="page-subtitle">Nahlédněte pod pokličku naší práce. Každý projekt je pro nás příběhem o řešení problému a dosažení konkrétního cíle pro našeho klienta.</p>
+            </div>
+        </section>
+
+        <section id="portfolio-full" class="content-section">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="*">Všechny</button>
+                    <button class="filter-btn" data-filter=".app">Aplikace</button>
+                    <button class="filter-btn" data-filter=".web">Weby</button>
+                    <button class="filter-btn" data-filter=".supabase">Supabase</button>
+                </div>
+
+                <div class="portfolio-grid">
+
+                    <div class="portfolio-card app supabase">
+                        <a href="portfolio-proklepniauto.html" class="portfolio-image-link">
+                            <div class="portfolio-image">
+                                <img src="auto-pc.png" alt="Screenshot aplikace ProklepniAuto.cz">
+                            </div>
+                        </a>
+                        <div class="portfolio-content">
+                            <div class="portfolio-header">
+                                <span class="portfolio-category">Webová Aplikace</span>
+                                <h3>ProklepniAuto.cz</h3>
+                            </div>
+                            <div class="portfolio-achievement">
+                                <i class="fas fa-brain"></i>
+                                <div>
+                                    <strong>Klíčové Dosažení:</strong>
+                                    <span>AI asistent pro nákup vozů</span>
+                                </div>
+                            </div>
+                            <p>Komplexní webová aplikace, která využívá umělou inteligenci pro hloubkovou analýzu inzerátů a pomáhá uživatelům činit informovaná rozhodnutí.</p>
+                            <div class="portfolio-tags">
+                                <span>React.js</span><span>Supabase</span><span>AI</span><span>PostgreSQL</span>
+                            </div>
+                            <div class="portfolio-links">
+                                <a href="https://proklepniauto.cz" target="_blank" class="btn">Live Demo</a>
+                                <a href="portfolio-proklepniauto.html" class="btn-secondary">Případová studie</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card web supabase">
+                        <a href="portfolio-doucovani.html" class="portfolio-image-link">
+                            <div class="portfolio-image">
+                                <img src="doucovani-pc.png" alt="Screenshot webu Doučování Cheb">
+                            </div>
+                        </a>
+                        <div class="portfolio-content">
+                             <div class="portfolio-header">
+                                <span class="portfolio-category">Webová Platforma</span>
+                                <h3>Doučování Cheb</h3>
+                            </div>
+                            <div class="portfolio-achievement">
+                                <i class="fas fa-users-cog"></i>
+                                <div>
+                                    <strong>Klíčové Dosažení:</strong>
+                                    <span>Studentský portál na Supabase</span>
+                                </div>
+                            </div>
+                            <p>Efektivní platforma propojující lektory a studenty, postavená s backendem pro správu uživatelů a budoucí rozvoj na plnohodnotnou online školu.</p>
+                            <div class="portfolio-tags">
+                                <span>HTML5</span><span>CSS3</span><span>Supabase</span><span>JavaScript</span>
+                            </div>
+                             <div class="portfolio-links">
+                                <a href="https://doucovani-cheb.cz" target="_blank" class="btn">Live Demo</a>
+                                <a href="portfolio-doucovani.html" class="btn-secondary">Případová studie</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card web">
+                        <a href="portfolio-trinity.html" class="portfolio-image-link">
+                            <div class="portfolio-image">
+                                <img src="trinity-web-pc.png" alt="Screenshot webu Trinity Club Cheb">
+                            </div>
+                        </a>
+                        <div class="portfolio-content">
+                            <div class="portfolio-header">
+                                <span class="portfolio-category">Firemní Web</span>
+                                <h3>Web pro Trinity Club Cheb</h3>
+                            </div>
+                            <div class="portfolio-achievement">
+                                <i class="fas fa-mobile-alt"></i>
+                                <div>
+                                    <strong>Klíčové Dosažení:</strong>
+                                    <span>Responzivní rozvrh hodin</span>
+                                </div>
+                            </div>
+                            <p>Moderní a rychlá prezentace pro fitness centrum, která zjednodušila klientům přístup k informacím a ušetřila desítky hodin práce personálu.</p>
+                            <div class="portfolio-tags">
+                                <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+                            </div>
+                            <div class="portfolio-links">
+                                <a href="https://artifexia-labs.github.io/trinity-new/" target="_blank" class="btn">Live Demo</a>
+                                <a href="portfolio-trinity.html" class="btn-secondary">Případová studie</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-promo" class="content-section">
+            <div class="container contact-container">
+                <h2 class="section-title">Máte podobný projekt?</h2>
+                <p class="contact-subtitle">Pojďme společně vytvořit něco, na co budeme oba hrdí. Napište nám a domluvíme si nezávaznou konzultaci.</p>
+                <a href="kontakt.html" class="btn email-btn">Domluvit si schůzku</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about">
+                    <a href="index.html" class="footer-logo">KUHRYSHEV</a>
+                    <p class="footer-tagline">Tvoříme moderní a funkční weby, které pomáhají růst firmám v Karlovarském kraji.</p>
+                    <div class="footer-socials">
+                        <a href="https://t.me/justmaksyym" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="https://wa.me/420603201843" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://github.com/artifexia-labs/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col links">
+                    <h4>Navigace</h4>
+                    <ul>
+                        <li><a href="sluzby.html">Služby</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="o-nas.html">O nás</a></li>
+                        <li><a href="proces.html">Proces</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contact">
+                    <h4>Spojte se s námi</h4>
+                    <p>Máte nápad nebo dotaz? Jsme připraveni vám pomoci.</p>
+                    <a href="mailto:maksym@kuhryshev.online" class="footer-email">maksym@kuhryshev.online</a>
+                    <a href="kontakt.html" class="footer-contact-btn">Napsat zprávu</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 KUHRYSHEV | Vytvořeno s vášní a kódem v Chebu.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="js/portfolio.js"></script>
+</body>
+</html>

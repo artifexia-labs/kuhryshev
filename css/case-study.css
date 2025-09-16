@@ -1,0 +1,168 @@
+/* === ИСПРАВЛЕНИЕ: Делаем контент видимым по умолчанию === */
+.content-section {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* === КОНЕЦ ИСПРАВЛЕНИЯ === */
+
+
+/* === Стили для страниц Case Study === */
+
+#case-study-hero {
+    padding-top: 160px;
+    padding-bottom: 90px;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.case-study-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--purple), var(--orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.case-study-subtitle {
+    font-size: 1.3rem;
+    color: var(--mid-text);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.case-study-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 4rem;
+    align-items: flex-start;
+}
+
+/* Основной контент (левая часть) */
+.case-study-content h2 {
+    font-size: 2.5rem;
+    color: var(--light-text);
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--purple);
+    padding-left: 1rem;
+}
+
+.case-study-content p, .case-study-content li {
+    color: var(--mid-text);
+    line-height: 1.9;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    background: var(--mid-space);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.overview-item h4 { color: var(--light-text); font-size: 1rem; margin-bottom: 0.5rem; font-weight: 600; }
+.overview-item p { margin: 0; font-size: 1rem; }
+.live-link { color: var(--orange); text-decoration: none; font-weight: 600; }
+.live-link:hover { text-decoration: underline; }
+
+/* === НОВЫЕ СТИЛИ: Блок с фишками решения === */
+.solution-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+.highlight-item {
+    background: var(--mid-space);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+.highlight-item i {
+    font-size: 2rem;
+    color: var(--purple);
+    margin-bottom: 1rem;
+}
+.highlight-item h4 {
+    color: var(--light-text);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+.highlight-item p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+
+/* === НОВЫЕ СТИЛИ: Блок сравнения "До/После" === */
+.comparison-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+    margin: 3rem 0;
+    padding: 2rem;
+    border-radius: 15px;
+    background: var(--dark-space);
+}
+.comparison-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.comparison-column h3 {
+    text-align: center;
+    color: var(--light-text);
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+.comparison-column img {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+}
+.comparison-column.old-version img {
+    border-color: var(--orange);
+}
+.comparison-column.new-version {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+
+/* Боковая панель (правая часть) */
+.case-study-sidebar {
+    position: sticky;
+    top: 120px;
+    background: var(--mid-space);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.case-study-sidebar h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--light-text); }
+.tech-tags span { display: inline-block; background-color: rgba(142, 45, 226, 0.2); color: var(--purple); padding: 0.4rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: 500; margin-right: 0.5rem; margin-bottom: 0.5rem; }
+.case-study-sidebar .btn { width: 100%; margin-top: 2rem; text-align: center; }
+
+/* Адаптация */
+@media (max-width: 992px) {
+    .case-study-container { grid-template-columns: 1fr; }
+    .case-study-sidebar { position: static; margin-top: 3rem; }
+}
+
+@media (max-width: 768px) {
+    .case-study-title { font-size: 2.5rem; }
+    .case-study-content h2 { font-size: 2rem; }
+    .comparison-section { grid-template-columns: 1fr; }
+}

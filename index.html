@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maksym Kuhryshev | AI Developer Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>KUHRYSHEV | Tvorba webových stránek v Karlovarském kraji</title>
+    <meta name="description" content="Tvoříme moderní a rychlé webové stránky pro firmy a podnikatele v Chebu a Karlovarském kraji. Zvyšte svůj online dosah s KUHRYSHEV.">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script> </head>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
 <body>
 
     <header>
         <nav class="navbar">
             <div class="container">
-                <a href="#" class="nav-logo">MK</a>
+                <a href="index.html" class="nav-logo">KUHRYSHEV</a>
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="#about" class="nav-link">O mně</a></li>
-                    <li class="nav-item"><a href="#projects" class="nav-link">Projekty</a></li>
-                    <li class="nav-item"><a href="#skills" class="nav-link">Dovednosti</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Kontakt</a></li>
+                    <li class="nav-item"><a href="sluzby.html" class="nav-link">Služby</a></li>
+                    <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li class="nav-item"><a href="o-nas.html" class="nav-link">O nás</a></li>
+                    <li class="nav-item"><a href="proces.html" class="nav-link">Proces</a></li>
+                    <li class="nav-item"><a href="kontakt.html" class="btn">Kontakt</a></li>
                 </ul>
             </div>
         </nav>
@@ -29,133 +35,116 @@
         <section id="hero">
             <canvas id="space-canvas"></canvas>
             <div class="container hero-content">
-                <img src="maksym-photo-1.jpg" alt="Maksym Kuhryshev" class="profile-photo">
-                <h1 class="hero-title">Maksym Kuhryshev</h1>
-                <p class="hero-subtitle">Student, vývojář a budoucí inovátor v oblasti AI</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn">Prohlédnout projekty</a>
+                <h1 class="hero-title">Vaše vize, náš kód. Weby, které skutečně fungují.</h1>
+                <p class="hero-subtitle">Měníme digitální tvář firem v Karlovarském kraji. Vytváříme nejen webové stránky, ale silné nástroje pro váš byznys.</p>
+                <a href="kontakt.html" class="btn">Zahájit projekt</a>
+            </div>
+        </section>
+
+        <section id="team-intro" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Náš tým</h2>
+                <p class="section-description" style="text-align: center; max-width: 700px; margin: -2rem auto 4rem auto;">Jsme mladý a dynamický tým z Chebu. Spojujeme kreativitu, technické dovednosti a vášeň pro moderní technologie, abychom pro vás vytvořili to nejlepší řešení.</p>
+                <div class="team-intro-grid">
+                    <div class="team-intro-card">
+                        <img src="yuki-pham.webp" alt="Yuki Pham">
+                        <h3>Yuki Pham</h3>
+                        <p>Team Lead & Marketing</p>
+                    </div>
+                    <div class="team-intro-card">
+                        <img src="maksym-photo-1.jpg" alt="Maksym Kuhryshev">
+                        <h3>Maksym Kuhryshev</h3>
+                        <p>Founder & Lead Developer</p>
+                    </div>
+                    <div class="team-intro-card">
+                        <div class="team-photo-placeholder">IM</div>
+                        <h3>Ihor Myronenko</h3>
+                        <p>Project Manager</p>
+                    </div>
+                </div>
+                <div class="team-intro-cta">
+                    <a href="o-nas.html" class="btn">Více o našem týmu</a>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="content-section">
+        <section id="portfolio-preview" class="content-section" style="background: var(--dark-space);">
             <div class="container">
-                <h2 class="section-title">O mně</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>
-                            Jsem student oboru Informační technologie na SPŠ Ostrov, kde se připravuji na kariéru ve světě umělé inteligence. Mým cílem je nejen programovat, ale také propojovat technologie s byznysem a vytvářet inovativní AI startupy. Fascinuje mě schopnost AI řešit komplexní problémy a hledám způsoby, jak ji implementovat do smysluplných projektů.
-                        </p>
-                        <p>
-                            Má vášeň pro <strong>matematiku</strong> a <strong>ekonomii</strong> mi dává pevný základ pro pochopení algoritmů a tržních principů. Ve volném čase se věnuji <strong>sportu</strong> – posilovna a běh mě učí disciplíně a vytrvalosti, což jsou vlastnosti, které přenáším i do své práce. Jsem také hrdý na <strong>3. místo v krajském kole chemické olympiády</strong>, což dokazuje mé odhodlání jít do hloubky v jakémkoli oboru.
-                        </p>
-                    </div>
-                    <div class="about-image">
-                        <img src="chemie.jpg" alt="Ocenění z chemické olympiády" class="award-photo">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="content-section">
-            <div class="container">
-                <h2 class="section-title">Moje Projekty</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3>Web pro Trinity Club Cheb</h3>
-                            <p>Můj první web na zakázku. Moderní a přehledná prezentace pro místní fitness centrum.</p>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://artifexia-labs.github.io/trinity-new/" target="_blank">Live Demo</a>
-                            <a href="https://github.com/artifexia-labs/trinity-new" target="_blank">GitHub</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <div class="card-content">
-                            <h3>Justax.space</h3>
-                            <p>Osobní projekt a "hřiště", kde experimentuji s různými webovými technologiemi a designem.</p>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://justax.space" target="_blank">Live Demo</a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                         <div class="card-content">
+                <h2 class="section-title">Naše práce mluví za nás</h2>
+                <div class="case-studies-grid">
+                    <div class="case-study-card">
+                        <div class="case-study-image"><a href="portfolio-proklepniauto.html"><img src="auto-pc.png" alt="ProklepniAuto.cz Screenshot"></a></div>
+                        <div class="case-study-content">
                             <h3>ProklepniAuto.cz</h3>
-                            <p>Platforma zaměřená na automobilový sektor. Projekt kombinuje práci s daty a UX design.</p>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://proklepniauto.cz" target="_blank">Live Demo</a>
+                            <p>Komplexní webová aplikace s AI asistentem, která zjednodušuje a zabezpečuje proces nákupu ojetého vozu.</p>
+                            <a href="portfolio-proklepniauto.html" class="case-study-link">Zobrazit případovou studii &rarr;</a>
                         </div>
                     </div>
-                    <div class="project-card">
-                        <div class="card-content">
+                    <div class="case-study-card">
+                        <div class="case-study-image"><a href="portfolio-doucovani.html"><img src="doucovani-pc.png" alt="Doučování Cheb Screenshot"></a></div>
+                        <div class="case-study-content">
                             <h3>Doučování Cheb</h3>
-                            <p>Společný projekt s kamarádkou – webová stránka nabízející doučování pro studenty v Chebu.</p>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://doucovani-cheb.cz" target="_blank">Live Demo</a>
+                            <p>Moderní platforma propojující lektory a studenty, postavená na backendu Supabase se správou uživatelů.</p>
+                             <a href="portfolio-doucovani.html" class="case-study-link">Zobrazit případovou studii &rarr;</a>
                         </div>
                     </div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="portfolio.html" class="btn">Všechny projekty</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="process" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Od Vize k Realitě: Náš Proces</h2>
+                <div class="process-steps">
+                    <div class="step"><div class="step-icon">1</div><h3>Úvodní Konzultace</h3><p>Probereme vaše cíle a vizi, abychom plně pochopili vaše potřeby.</p></div>
+                    <div class="step"><div class="step-icon">2</div><h3>Strategie a Plán</h3><p>Navrhneme detailní plán, časovou osu a technologické řešení projektu.</p></div>
+                    <div class="step"><div class="step-icon">3</div><h3>UI/UX Design</h3><p>Vytvoříme moderní a intuitivní design, který si zamilují vaši uživatelé.</p></div>
+                    <div class="step"><div class="step-icon">4</div><h3>Vývoj</h3><p>Převedeme schválený design do funkčního, rychlého a bezpečného kódu.</p></div>
+                    <div class="step"><div class="step-icon">5</div><h3>Testování a Revize</h3><p>Důkladně otestujeme každou funkci a zapracujeme vaše připomínky.</p></div>
+                    <div class="step"><div class="step-icon">6</div><h3>Spuštění a Podpora</h3><p>Nasadíme web na vaši doménu a zajistíme jeho bezproblémový chod.</p></div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="proces.html" class="btn">Více o našem procesu</a>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="content-section">
+        <section id="tech-stack" class="content-section" style="background: var(--dark-space);">
             <div class="container">
-                <h2 class="section-title">Technologický arzenál</h2>
-                <div class="skills-grid-detailed">
-                    <div class="skill-category-detailed">
-                        <h3>Frontend</h3>
-                        <ul>
-                            <li><strong>JavaScript (ES6+)</strong></li>
-                            <li><strong>React.js</strong> (Hooks, Router, Context)</li>
-                            <li><strong>HTML5</strong> (Sémantika, SEO)</li>
-                            <li><strong>CSS3</strong> (Flexbox, Grid, Animace)</li>
-                            <li>Vizualizace dat (<strong>Chart.js</strong>)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category-detailed">
-                        <h3>Backend & Databáze</h3>
-                        <ul>
-                            <li><strong>Supabase</strong> (Auth, DB, Storage, Functions)</li>
-                            <li><strong>PostgreSQL</strong> (SQL, Triggery, RLS)</li>
-                            <li><strong>Node.js</strong> (základy)</li>
-                            <li>REST API</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category-detailed">
-                        <h3>AI & Machine Learning</h3>
-                        <ul>
-                            <li>Integrace <strong>API</strong></li>
-                            <li>Aplikovaná AI (Analýza sentimentu)</li>
-                            <li>Text Summarization & Generation</li>
-                            <li>Základy RAG (Retrieval-Augmented Generation)</li>
-                        </ul>
-                    </div>
+                <h2 class="section-title">Technologie, se kterými pracujeme</h2>
+                <div class="tech-stack-grid">
+                    <div class="tech-item"><i class="fab fa-html5"></i><p>HTML5</p></div>
+                    <div class="tech-item"><i class="fab fa-css3-alt"></i><p>CSS3</p></div>
+                    <div class="tech-item"><i class="fab fa-js-square"></i><p>JavaScript</p></div>
+                    <div class="tech-item"><i class="fab fa-react"></i><p>React.js</p></div>
+                    <div class="tech-item"><i class="fas fa-database"></i><p>Supabase</p></div>
                 </div>
             </div>
         </section>
+
         <section id="contact" class="content-section">
             <div class="container contact-container">
-                <h2 class="section-title">Spojte se se mnou</h2>
-                <p class="contact-subtitle">Máte zajímavý projekt, nápad nebo se chcete jen pozdravit? Napište mi.</p>
-                <a href="mailto:maksym@kuhryshev.online" class="btn email-btn">maksym@kuhryshev.online</a>
-                <div class="social-links">
-                    <a href="https://t.me/justmaksyym" target="_blank" title="Telegram">Telegram</a>
-                    <a href="https://wa.me/420603201843" target="_blank" title="WhatsApp">WhatsApp</a>
-                    <a href="https://github.com/artifexia-labs/" target="_blank" title="GitHub">GitHub</a> </div>
+                <h2 class="section-title">Připraveni začít?</h2>
+                <p class="contact-subtitle">Pojďme společně vytvořit něco výjimečného. Napište nám a domluvíme si nezávaznou konzultaci vašeho projektu.</p>
+                <a href="kontakt.html" class="btn email-btn">Kontaktujte nás</a>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2025 Maksym Kuhryshev. Vytvořeno s vášní a kódem.</p>
+            <div class="footer-grid">
+                <div class="footer-col about"><a href="index.html" class="footer-logo">KUHRYSHEV</a><p class="footer-tagline">Tvoříme moderní a funkční weby, které pomáhají růst firmám v Karlovarském kraji.</p><div class="footer-socials"><a href="https://t.me/justmaksyym" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a><a href="https://wa.me/420603201843" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a><a href="https://github.com/artifexia-labs/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a></div></div>
+                <div class="footer-col links"><h4>Navigace</h4><ul><li><a href="sluzby.html">Služby</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="o-nas.html">O nás</a></li><li><a href="proces.html">Proces</a></li></ul></div>
+                <div class="footer-col contact"><h4>Spojte se s námi</h4><p>Máte nápad nebo dotaz? Jsme připraveni vám pomoci.</p><a href="mailto:maksym@kuhryshev.online" class="footer-email">maksym@kuhryshev.online</a><a href="kontakt.html" class="footer-contact-btn">Napsat zprávu</a></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2025 KUHRYSHEV | Vytvořeno s vášní a kódem v Chebu.</p></div>
         </div>
     </footer>
-
-    <script src="index.js"></script>
+    
+    <script src="js/index.js"></script>
 </body>
 </html>

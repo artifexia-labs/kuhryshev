@@ -1,0 +1,467 @@
+/* Základní nastavení a "vesmírné" proměnné */
+:root {
+    --purple: #8e2de2;
+    --orange: #ff6a00;
+    --dark-space: #0f0c29;
+    --mid-space: #24243e;
+    --light-text: #f0f0f0;
+    --mid-text: #a0a0b8;
+    --glow-color: rgba(142, 45, 226, 0.6);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --font-family: 'Poppins', sans-serif;
+    --transition-speed: 0.4s;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-family); background: linear-gradient(180deg, var(--dark-space) 0%, #000 100%); color: var(--light-text); overflow-x: hidden; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+/* Navigace */
+.navbar { background: rgba(15, 12, 41, 0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; transition: background var(--transition-speed) ease; }
+.navbar .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { font-weight: 700; font-size: 1.8rem; text-decoration: none; background: linear-gradient(90deg, var(--purple), var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.nav-menu { list-style: none; display: flex; align-items: center; }
+.nav-item { margin-left: 2rem; }
+.nav-link { color: var(--mid-text); text-decoration: none; font-weight: 400; transition: color var(--transition-speed) ease; padding-bottom: 5px; border-bottom: 2px solid transparent; }
+.nav-link:hover { color: var(--light-text); border-bottom-color: var(--purple); }
+/* Добавь это в конец секции "Navigace" в файле styles.css */
+.nav-link.active {
+    color: var(--light-text);
+    border-bottom-color: var(--purple);
+}
+
+/* Hero sekce */
+#hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; padding-top: 80px; }
+#space-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+.hero-content { position: relative; z-index: 2; }
+.hero-title { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; background: linear-gradient(90deg, var(--purple), var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-subtitle { font-size: 1.3rem; font-weight: 300; color: var(--mid-text); margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+/* Tlačítko */
+.btn { padding: 0.8rem 2rem; text-decoration: none; border-radius: 50px; font-weight: 600; color: var(--light-text); background: linear-gradient(90deg, var(--purple), var(--orange)); border: none; transition: all var(--transition-speed) ease; box-shadow: 0 0 15px var(--glow-color); background-size: 200% auto; display: inline-block; }
+.btn:hover { background-position: right center; transform: scale(1.05); }
+
+/* Společné styly pro sekce */
+.content-section { padding: 6rem 0; opacity: 0; transform: translateY(50px); transition: opacity 1s ease-out, transform 1s ease-out; }
+.content-section.visible { opacity: 1; transform: translateY(0); }
+.section-title { font-size: 3rem; font-weight: 600; text-align: center; margin-bottom: 4rem; background: linear-gradient(90deg, var(--purple) 0%, var(--orange) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* === НОВЫЕ СТИЛИ: БЛОК ОБО МНЕ === */
+.about-me-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; }
+.about-me-photo img { width: 100%; max-width: 300px; border-radius: 50%; border: 5px solid var(--purple); box-shadow: 0 0 25px var(--glow-color); }
+.about-me-text p { color: var(--mid-text); line-height: 1.8; margin-bottom: 1.5rem; }
+.trust-badge { display: flex; align-items: center; gap: 1rem; background-color: var(--mid-space); padding: 1rem; border-radius: 10px; border-left: 4px solid var(--orange); }
+.trust-badge i { font-size: 1.5rem; color: var(--orange); }
+.trust-badge p { margin: 0; color: var(--light-text); font-size: 0.9rem; }
+
+/* === НОВЫЕ СТИЛИ: БЛОК ОТЗЫВОВ === */
+#testimonials { background-color: var(--dark-space); }
+.testimonial-card { background: var(--mid-space); padding: 3rem; border-radius: 15px; border: 1px solid var(--border-color); text-align: center; max-width: 800px; margin: 0 auto; }
+.testimonial-quote { font-size: 1.3rem; font-style: italic; color: var(--light-text); line-height: 1.7; margin-bottom: 2rem; }
+.testimonial-author { color: var(--mid-text); font-weight: 600; }
+.testimonial-author strong { color: var(--light-text); }
+
+/* Služby */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.service-card { background: linear-gradient(145deg, rgba(36, 36, 62, 0.4), rgba(15, 12, 41, 0.4)); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid var(--border-color); border-radius: 15px; padding: 2.5rem; transition: all var(--transition-speed) ease; text-align: center; }
+.service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); border-color: rgba(142, 45, 226, 0.5); }
+.service-card i { font-size: 2.5rem; margin-bottom: 1.5rem; background: linear-gradient(90deg, var(--purple), var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.service-card h3 { font-size: 1.6rem; color: var(--light-text); margin-bottom: 1rem; }
+.service-card p { color: var(--mid-text); line-height: 1.7; }
+
+/* === НОВЫЕ СТИЛИ: КЕЙСЫ === */
+.case-studies-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; }
+.case-study-card { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; background: var(--mid-space); border-radius: 15px; overflow: hidden; border: 1px solid var(--border-color); }
+.case-study-card:nth-child(even) { grid-template-columns: 1fr 1fr; }
+.case-study-card:nth-child(even) .case-study-image { order: 2; }
+.case-study-image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-speed) ease; }
+.case-study-card:hover .case-study-image img { transform: scale(1.05); }
+.case-study-content { padding: 2rem; }
+.case-study-content h3 { font-size: 1.8rem; color: var(--light-text); margin-bottom: 1.5rem; }
+.case-study-content p { color: var(--mid-text); line-height: 1.7; margin-bottom: 1rem; }
+.case-study-content strong { color: var(--light-text); }
+.case-study-link { color: var(--orange); text-decoration: none; font-weight: 600; transition: color var(--transition-speed) ease; }
+.case-study-link:hover { color: var(--purple); }
+
+
+/* Proces */
+.process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; }
+.step { padding: 2rem; }
+.step-icon { width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(90deg, var(--purple), var(--orange)); color: var(--light-text); font-size: 2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+.step h3 { font-size: 1.5rem; color: var(--light-text); margin-bottom: 1rem; }
+.step p { color: var(--mid-text); line-height: 1.7; }
+
+/* === НОВЫЕ СТИЛИ: FAQ === */
+.faq-container { max-width: 800px; margin: 0 auto; }
+.faq-item { background: var(--mid-space); border-radius: 10px; margin-bottom: 1rem; border: 1px solid var(--border-color); padding: 1.5rem 2rem; }
+.faq-question { font-size: 1.2rem; color: var(--light-text); margin-bottom: 0.5rem; }
+.faq-answer { color: var(--mid-text); line-height: 1.7; }
+
+
+/* Kontakt a Footer */
+.contact-container { text-align: center; }
+.contact-subtitle { max-width: 600px; margin: 0 auto 2rem; color: var(--mid-text); }
+.email-btn { font-size: 1.2rem; display: inline-block; margin-bottom: 2.5rem; }
+.social-links a { color: var(--mid-text); text-decoration: none; margin: 0 1rem; font-size: 2rem; transition: all var(--transition-speed) ease; }
+.social-links a:hover { color: var(--purple); transform: scale(1.1); }
+/* === Обновленный футер === */
+.site-footer {
+    background-color: var(--dark-space);
+    padding: 5rem 0 2rem 0;
+    border-top: 1px solid var(--border-color);
+    color: var(--mid-text);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.footer-col h4 {
+    font-size: 1.2rem;
+    color: var(--light-text);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.footer-logo {
+    font-weight: 700;
+    font-size: 2rem;
+    text-decoration: none;
+    background: linear-gradient(90deg, var(--purple), var(--orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.footer-tagline {
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 350px;
+}
+
+.footer-socials a {
+    color: var(--mid-text);
+    font-size: 1.8rem;
+    margin-right: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: var(--purple);
+    transform: scale(1.1);
+}
+
+.footer-col.links ul {
+    list-style: none;
+}
+
+.footer-col.links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-col.links a {
+    color: var(--mid-text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col.links a:hover {
+    color: var(--light-text);
+}
+
+.footer-col.contact p {
+    margin-bottom: 1rem;
+}
+
+.footer-email {
+    display: block;
+    color: var(--light-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-email:hover {
+    color: var(--orange);
+}
+
+.footer-contact-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-contact-btn:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+/* Адаптивность для футера */
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-col.about {
+        grid-column: 1 / -1; /* Растягиваем на всю ширину */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-tagline {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .footer-socials {
+        margin-bottom: 2rem;
+    }
+    .footer-socials a {
+        margin: 0 1rem;
+    }
+}
+
+/* Старый стиль для футера (нужно удалить или закомментировать) */
+/*
+footer { 
+    padding: 2rem 0; 
+    text-align: center; 
+    border-top: 1px solid var(--border-color); 
+    color: var(--mid-text); 
+}
+*/
+/* Responsivní design */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .section-title { font-size: 2.2rem; }
+    .about-me-grid { grid-template-columns: 1fr; text-align: center; }
+    .about-me-photo { margin: 0 auto 2rem; }
+    .case-study-card, .case-study-card:nth-child(even) { grid-template-columns: 1fr; }
+    .case-study-card:nth-child(even) .case-study-image { order: 0; }
+    /* Логика для мобильного меню (burger) здесь */
+    .nav-menu { display: none; } 
+}
+/* === Стили для секции "Proč my / Náš přístup" на hlavní stránce === */
+.why-us-section {
+    background-color: var(--dark-space);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.value-card {
+    text-align: center;
+    padding: 2rem;
+    background: var(--mid-space);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    transition: all 0.4s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--purple);
+}
+
+.value-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, var(--purple), var(--orange));
+    font-size: 2rem;
+    color: var(--light-text);
+}
+
+.value-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--light-text);
+}
+
+.value-card p {
+    color: var(--mid-text);
+    line-height: 1.7;
+}
+/* === Nové styly pro sekci Tým na hlavní stránce === */
+.team-intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+}
+.team-intro-card {
+    text-align: center;
+}
+.team-intro-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--border-color);
+    transition: all 0.4s ease;
+}
+.team-intro-card:hover img {
+    border-color: var(--purple);
+    transform: scale(1.05);
+}
+.team-intro-card h3 {
+    margin-top: 1.5rem;
+    font-size: 1.3rem;
+    color: var(--light-text);
+}
+.team-intro-card p {
+    color: var(--orange);
+    font-weight: 500;
+}
+.team-intro-cta {
+    text-align: center;
+}
+
+/* === Nové styly pro sekci Technologie === */
+.tech-stack-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.tech-item {
+    text-align: center;
+    color: var(--mid-text);
+    transition: all 0.3s ease;
+}
+.tech-item:hover {
+    color: var(--light-text);
+    transform: scale(1.1);
+}
+.tech-item i {
+    font-size: 4rem; /* Velikost ikon */
+}
+.tech-item p {
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+/* Úprava pro proces - 6 kroků */
+.process-steps {
+    /* Měníme grid, aby se lépe vešlo 6 prvků */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+@media (min-width: 992px) {
+    .process-steps {
+        grid-template-columns: repeat(3, 1fr); /* Na velkých obrazovkách 3 sloupce */
+    }
+}
+/* === Nové styly pro sekci Tým na hlavní stránce === */
+.team-intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto 3rem;
+}
+.team-intro-card {
+    text-align: center;
+}
+.team-intro-card img, .team-intro-card .team-photo-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--border-color);
+    transition: all 0.4s ease;
+    margin: 0 auto; /* Центрирование */
+}
+
+.team-intro-card:hover img, .team-intro-card:hover .team-photo-placeholder {
+    border-color: var(--purple);
+    transform: scale(1.05);
+}
+
+.team-photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark-space);
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--mid-text);
+}
+
+
+.team-intro-card h3 {
+    margin-top: 1.5rem;
+    font-size: 1.3rem;
+    color: var(--light-text);
+}
+.team-intro-card p {
+    color: var(--orange);
+    font-weight: 500;
+}
+.team-intro-cta {
+    text-align: center;
+}
+
+/* === Nové styly pro sekci Technologie === */
+.tech-stack-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.tech-item {
+    text-align: center;
+    color: var(--mid-text);
+    transition: all 0.3s ease;
+}
+.tech-item:hover {
+    color: var(--light-text);
+    transform: scale(1.1);
+}
+.tech-item i {
+    font-size: 4rem; /* Velikost ikon */
+}
+.tech-item p {
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+/* Úprava pro proces - 6 kroků */
+.process-steps {
+    /* Měníme grid, aby se lépe vešlo 6 prvků */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+@media (min-width: 992px) {
+    .process-steps {
+        grid-template-columns: repeat(3, 1fr); /* Na velkých obrazovkách 3 sloupce */
+    }
+}

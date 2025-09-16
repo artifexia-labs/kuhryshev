@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         initParticles();
+        window.addEventListener('resize', initParticles); // Re-init on resize for better density
 
         // Animační smyčka
         function animateParticles() {
@@ -70,11 +71,16 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            window.scrollTo({
-                top: targetSection.offsetTop - 80, // Kompenzace za výšku navigace
-                behavior: 'smooth'
-            });
+            // Убедимся, что селектор корректен (начинается с #)
+            if (targetId && targetId.startsWith('#')) {
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80, // Kompenzace za výšku navigace
+                        behavior: 'smooth'
+                    });
+                }
+            }
         });
     });
 

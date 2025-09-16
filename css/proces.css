@@ -1,0 +1,193 @@
+/* === Стили для страницы proces.html === */
+
+/* Hero блок для внутренних страниц - стили уже есть в portfolio.css, здесь можно добавить переопределения при необходимости */
+#page-hero {
+    padding-top: 150px;
+    padding-bottom: 80px;
+    text-align: center;
+    background: var(--dark-space);
+}
+
+/* === Основной блок: Детализированный процесс (Timeline) === */
+#process-detailed.content-section {
+    padding-top: 4rem;
+}
+
+.process-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Центральная вертикальная линия */
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--purple), var(--orange));
+    box-shadow: 0 0 10px var(--glow-color);
+}
+
+.timeline-item {
+    padding: 1rem 3rem;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+/* Расположение карточек слева */
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 4rem;
+    text-align: right;
+}
+
+/* Расположение карточек справа */
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 4rem;
+}
+
+/* Иконки на линии */
+.timeline-icon {
+    position: absolute;
+    top: 25px;
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, var(--purple), var(--orange));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--light-text);
+    border: 3px solid var(--dark-space);
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+.timeline-item:nth-child(odd) .timeline-icon {
+    right: 0;
+    transform: translateX(50%);
+}
+
+.timeline-item:nth-child(even) .timeline-icon {
+    left: 0;
+    transform: translateX(-50%);
+}
+
+/* Контентная часть карточки */
+.timeline-content {
+    padding: 1.5rem 2rem;
+    background: var(--mid-space);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    position: relative;
+    transition: all var(--transition-speed) ease;
+}
+
+.timeline-content:hover {
+    transform: scale(1.03);
+    border-color: var(--purple);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.step-number {
+    display: inline-block;
+    color: var(--orange);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.timeline-content h3 {
+    font-size: 1.6rem;
+    color: var(--light-text);
+    margin-bottom: 0.75rem;
+}
+
+.timeline-content p {
+    color: var(--mid-text);
+    line-height: 1.7;
+}
+
+/* === Адаптация для мобильных устройств === */
+@media (max-width: 768px) {
+    /* Сдвигаем линию влево */
+    .process-timeline::before {
+        left: 25px;
+        transform: translateX(0);
+    }
+
+    /* Все карточки располагаем справа от линии */
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        left: 0;
+        padding-left: 65px; /* Отступ от иконки */
+        padding-right: 1rem;
+        text-align: left;
+    }
+    
+    .timeline-item:nth-child(odd) {
+        text-align: left;
+    }
+
+    /* Иконки ставим на левую линию */
+    .timeline-icon,
+    .timeline-item:nth-child(even) .timeline-icon,
+    .timeline-item:nth-child(odd) .timeline-icon {
+        left: 25px;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        padding-top: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .timeline-content h3 {
+        font-size: 1.4rem;
+    }
+}
+/* === Стили для Анимации === */
+
+/* Начальное состояние карточек до анимации */
+.timeline-item {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Сдвигаем левые карточки влево */
+.timeline-item:nth-child(odd) {
+    transform: translateX(-50px);
+}
+
+/* Сдвигаем правые карточки вправо */
+.timeline-item:nth-child(even) {
+    transform: translateX(50px);
+}
+
+/* Конечное состояние карточек после появления анимации */
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Для мобильных устройств убираем сдвиг по горизонтали и делаем плавное появление снизу */
+@media (max-width: 768px) {
+    .timeline-item,
+    .timeline-item:nth-child(even),
+    .timeline-item:nth-child(odd) {
+        transform: translateY(50px); /* Начальный сдвиг снизу */
+    }
+
+    .timeline-item.visible {
+        transform: translateY(0); /* Возвращаем на место */
+    }
+}

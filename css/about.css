@@ -1,0 +1,182 @@
+/* === Стили для страницы about.html === */
+
+/* Блок 1: Hero Section */
+#about-hero {
+    padding-top: 150px;
+    padding-bottom: 80px;
+    text-align: center;
+}
+
+#about-hero .hero-title {
+    font-size: 3.5rem;
+}
+
+#about-hero .hero-subtitle {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Блок 2: Миссия */
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.mission-card {
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    background: var(--mid-space);
+}
+
+.mission-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--light-text);
+}
+
+.mission-card.problem h3 {
+    color: var(--orange);
+}
+
+.mission-card.solution h3 {
+    color: var(--purple);
+}
+
+.mission-card p {
+    color: var(--mid-text);
+    line-height: 1.8;
+}
+
+/* --- ИЗМЕНЕНИЯ ЗДЕСЬ --- */
+/* Блок 3: Команда */
+.team-grid {
+    display: grid;
+    /* 1. Заставляем сетку всегда иметь 3 колонки */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2rem; /* Уменьшил отступ для лучшего вида */
+    /* 2. Увеличиваем максимальную ширину контейнера, чтобы все влезло */
+    max-width: 1100px; 
+    margin: 0 auto;
+}
+
+.team-card {
+    background: var(--mid-space);
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: all 0.4s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: var(--purple);
+}
+
+.team-photo, .team-photo-placeholder {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    overflow: hidden;
+    border: 4px solid var(--purple);
+    box-shadow: 0 0 20px var(--glow-color);
+}
+
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark-space);
+}
+
+.team-photo-placeholder span {
+    font-size: 4rem;
+    font-weight: 600;
+    color: var(--mid-text);
+}
+
+.team-card h3 {
+    font-size: 1.6rem;
+    color: var(--light-text);
+    margin-bottom: 0.5rem;
+}
+
+.team-role {
+    color: var(--orange);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.team-bio {
+    color: var(--mid-text);
+    line-height: 1.7;
+    font-size: 0.9rem;
+}
+
+
+/* Блок 4: Ценности */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.value-card {
+    text-align: center;
+    padding: 2rem;
+}
+
+.value-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, var(--purple), var(--orange));
+    font-size: 2rem;
+}
+
+.value-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--light-text);
+}
+
+.value-card p {
+    color: var(--mid-text);
+    line-height: 1.7;
+}
+
+
+/* Адаптация для мобильных */
+@media (max-width: 992px) {
+    .team-grid {
+        grid-template-columns: 1fr; /* На планшетах и мобильных переключаемся на одну колонку */
+    }
+}
+
+@media (max-width: 768px) {
+    #about-hero .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+}
