@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         initParticles();
-        window.addEventListener('resize', initParticles); // Re-init on resize for better density
+        window.addEventListener('resize', initParticles);
 
         // Animační smyčka
         function animateParticles() {
@@ -65,15 +65,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    // --- Plynulé posouvání pro navigační odkazy ---
+    // --- Plynulé posouvání A PŘECHODY MEZI STRÁNKAMI ---
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            // Убедимся, что селектор корректен (начинается с #)
-            if (targetId && targetId.startsWith('#')) {
-                const targetSection = document.querySelector(targetId);
+            const targetUrl = this.getAttribute('href');
+
+            // POKUD je to odkaz pro posouvání na STEJNÉ stránce (začíná na #)...
+            if (targetUrl && targetUrl.startsWith('#')) {
+                // ...ZABRÁNÍME přechodu a plynule posuneme.
+                e.preventDefault(); // <-- TOTO JE KLÍČOVÁ ZMĚNA, PŘESUNUTO DOVNITŘ PODMÍNKY
+                
+                const targetId = targetUrl.substring(1);
+                const targetSection = document.getElementById(targetId);
+                
                 if (targetSection) {
                     window.scrollTo({
                         top: targetSection.offsetTop - 80, // Kompenzace za výšku navigace
@@ -81,6 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 }
             }
+            // POKUD je to odkaz na jinou stránku (např. "portfolio.html"),
+            // tento kód se nespustí a prohlížeč provede normální přechod.
         });
     });
 
