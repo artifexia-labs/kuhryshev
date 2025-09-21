@@ -5,21 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Náš Proces | KUHRYSHEV</title>
     <meta name="description" content="Zjistěte, jak probíhá spolupráce s webovým studiem KUHRYSHEV. Od první konzultace až po spuštění a následnou podporu.">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DHKQXV0ZFF"></script>
-
-<script>
-
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag(){dataLayer.push(arguments);}
-
-  gtag('js', new Date());
-
-
-
-  gtag('config', 'G-DHKQXV0ZFF');
-
-</script>
+    <link rel="stylesheet" href="css/cookie-banner.css">
+    
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/proces.css"> 
     
@@ -141,7 +128,49 @@
     </div>
 </footer>
     
-    <script src="js/index.js"></script> 
+<div class="cookie-consent-banner" id="cookie-consent-banner">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <p>Používáme soubory cookie, abychom vám poskytli co nejlepší zážitek z našich webových stránek. Některé jsou nezbytné, zatímco jiné nám pomáhají analyzovat návštěvnost.</p>
+            </div>
+            <div class="cookie-banner-actions">
+                <button class="btn-details" id="show-cookie-details">Podrobnosti</button>
+                <button class="btn" id="accept-all-cookies">Přijmout vše</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cookie-modal-overlay" id="cookie-modal-overlay">
+        <div class="cookie-modal">
+            <h3>Nastavení Souborů Cookie</h3>
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <label for="necessary-cookies">Nezbytné soubory cookie</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="necessary-cookies" checked disabled>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <p>Tyto soubory cookie jsou nezbytné pro základní funkčnost webu a nelze je vypnout.</p>
+            </div>
+            <div class="cookie-category">
+                <div class="cookie-category-header">
+                    <label for="analytics-cookies">Analytické soubory cookie</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="analytics-cookies" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <p>Tyto soubory cookie nám pomáhají analyzovat návštěvnost a chování uživatelů, což nám umožňuje vylepšovat naše služby (např. Google Analytics).</p>
+            </div>
+            <div class="cookie-modal-actions">
+                <button class="btn" id="save-cookie-settings">Uložit nastavení</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+    <script src="js/cookie-consent.js"></script>
     <script src="js/proces.js"></script>
+
 </body>
 </html>
