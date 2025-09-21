@@ -42,37 +42,47 @@
 
         <section id="contact-form-section" class="content-section">
             <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <h3>Kontaktní údaje</h3>
-                        <p>Preferujete osobní setkání? Rádi se s vámi sejdeme v Chebu a okolí.</p>
-                        <ul class="contact-details">
-                            <li><i class="fas fa-envelope"></i> <a href="mailto:maksym@kuhryshev.online">maksym@kuhryshev.online</a></li>
-                            <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/420603201843" target="_blank">+420 603 201 843</a></li>
-                            <li><i class="fas fa-map-marker-alt"></i> Cheb, Karlovarský kraj</li>
-                        </ul>
-                        <div class="social-links-contact">
-                            <a href="https://t.me/justmaksyym" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
-                            <a href="https://github.com/artifexia-labs/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <div id="contact-wrapper">
+                    <div class="contact-grid">
+                        <div class="contact-info">
+                            <h3>Kontaktní údaje</h3>
+                            <p>Preferujete osobní setkání? Rádi se s vámi sejdeme v Chebu a okolí.</p>
+                            <ul class="contact-details">
+                                <li><i class="fas fa-envelope"></i> <a href="mailto:maksym@kuhryshev.online">maksym@kuhryshev.online</a></li>
+                                <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/420603201843" target="_blank">+420 603 201 843</a></li>
+                                <li><i class="fas fa-map-marker-alt"></i> Cheb, Karlovarský kraj</li>
+                            </ul>
+                            <div class="social-links-contact">
+                                <a href="https://t.me/justmaksyym" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+                                <a href="https://github.com/artifexia-labs/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                            </div>
                         </div>
-                    </div>
 
-                    <form class="contact-form">
-                        <h3>Napište nám</h3>
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" required placeholder="Vaše jméno">
-                            <label for="name">Vaše jméno</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" required placeholder="Váš e-mail">
-                            <label for="email">Váš e-mail</label>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" rows="6" required placeholder="Vaše zpráva"></textarea>
-                            <label for="message">Vaše zpráva</label>
-                        </div>
-                        <button type="submit" class="btn">Odeslat zprávu</button>
-                    </form>
+                        <form id="contactForm" class="contact-form" novalidate>
+                            <h3>Napište nám</h3>
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" required placeholder=" ">
+                                <label for="name">Vaše jméno</label>
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" required placeholder=" ">
+                                <label for="email">Váš e-mail</label>
+                                <div class="error-message"></div>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" rows="6" required placeholder=" "></textarea>
+                                <label for="message">Vaše zpráva</label>
+                                <div class="error-message"></div>
+                            </div>
+                            <button type="submit" class="btn" id="submitBtn">Odeslat zprávu</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div id="response-message" class="response-message" style="display: none;">
+                    <h2 id="response-title"></h2>
+                    <p id="response-text"></p>
                 </div>
             </div>
         </section>
@@ -113,5 +123,6 @@
 </footer>
     
     <script src="js/index.js"></script>
+    <script src="js/kontakt.js"></script>
 </body>
 </html>
