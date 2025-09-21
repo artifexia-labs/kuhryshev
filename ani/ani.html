@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANI /// The Case File 🐻🔍</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <div id="preloader">
+        <div class="preloader-text">
+            <span>C</span><span>A</span><span>S</span><span>E</span> <span>A</span><span>N</span><span>I</span>
+        </div>
+    </div>
+
+    <main id="content" class="hidden">
+        <header id="hero">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="video-1.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="main-title">CASE FILE: ANI 🐻</h1>
+                <p class="subtitle">Evidence of pure magic ✨</p>
+                <div id="timer">
+                    <div class="timer-unit"><span id="days">00</span><p>Days</p></div>
+                    <div class="timer-unit"><span id="hours">00</span><p>Hours</p></div>
+                    <div class="timer-unit"><span id="minutes">00</span><p>Mins</p></div>
+                    <div class="timer-unit"><span id="seconds">00</span><p>Secs</p></div>
+                </div>
+            </div>
+        </header>
+
+        <section id="memories-canvas">
+            <div class="canvas-container">
+
+                <!-- === SVG DETECTIVE BOARD WIRES === -->
+                <svg class="evidence-map" aria-hidden="true">
+                    <!-- Эти линии соединяют комплименты, фото и медвежат -->
+                    <line class="wire" x1="15%" y1="120vh" x2="50%" y2="120vh"/>
+                    <line class="wire" x1="50%" y1="120vh" x2="80%" y2="120vh"/>
+                    <line class="wire" x1="20%" y1="220vh" x2="55%" y2="220vh"/>
+                    <line class="wire" x1="55%" y1="220vh" x2="85%" y2="220vh"/>
+                    <line class="wire" x1="15%" y1="320vh" x2="50%" y2="320vh"/>
+                    <line class="wire" x1="50%" y1="320vh" x2="80%" y2="320vh"/>
+                    <line class="wire" x1="20%" y1="420vh" x2="55%" y2="420vh"/>
+                    <line class="wire" x1="55%" y1="420vh" x2="85%" y2="420vh"/>
+                    <line class="wire" x1="15%" y1="520vh" x2="50%" y2="520vh"/>
+                    <line class="wire" x1="50%" y1="520vh" x2="80%" y2="520vh"/>
+                    <line class="wire" x1="20%" y1="620vh" x2="55%" y2="620vh"/>
+                    <line class="wire" x1="55%" y1="620vh" x2="85%" y2="620vh"/>
+                    <line class="wire" x1="15%" y1="720vh" x2="50%" y2="720vh"/>
+                    <line class="wire" x1="50%" y1="720vh" x2="80%" y2="720vh"/>
+                    <line class="wire" x1="20%" y1="820vh" x2="55%" y2="820vh"/>
+                    <line class="wire" x1="55%" y1="820vh" x2="85%" y2="820vh"/>
+                </svg>
+
+                <!-- === ГРУППА 1 === -->
+<div class="evidence-group" style="top: 80vh;">
+    <div class="floating-item evidence-note" data-depth="0.3" style="left: 15%; width: 230px;">
+        <div class="pin-top-left"></div>
+        You always look stunning — no matter what you wear 👗
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.5" style="left: 48%; width: 14vw;">
+        <img src="photo-1.jpg" alt="Memory 1">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item kpop-bear" data-depth="0.2" style="left: 80%; width: 12vw;" data-group="TWICE">
+        <img src="bears/bear-twice.svg" alt="TWICE Bear" class="bear-img clickable">
+        <div class="group-tag">💖 Suspect: TWICE</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 2 === -->
+<div class="evidence-group" style="top: 160vh;">
+    <div class="floating-item evidence-note" data-depth="0.4" style="left: 18%; width: 230px;">
+        <div class="tape-top"></div>
+        Your personality? 100% pure sunshine ☀️
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.6" style="left: 50%; width: 14vw;">
+        <img src="photo-2.jpg" alt="Memory 2">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item bear-note" data-depth="0.3" style="left: 85%; width: 130px;">
+        <img src="bears/bear-note.svg" alt="Bear with note" class="bear-img">
+        <div class="note-text">Evidence: Bias 4eva</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 3 === -->
+<div class="evidence-group" style="top: 240vh;">
+    <div class="floating-item evidence-note" data-depth="0.5" style="left: 15%; width: 230px;">
+        <div class="pin-top-right"></div>
+        You have the kindest soul I’ve ever known 💖
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.4" style="left: 48%; width: 14vw;">
+        <img src="photo-3.jpg" alt="Memory 3">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item kpop-bear" data-depth="0.3" style="left: 80%; width: 11vw;" data-group="ENHYPEN">
+        <img src="bears/bear-enhypen.svg" alt="ENHYPEN Bear" class="bear-img clickable">
+        <div class="group-tag">🩸 Suspect: ENHYPEN</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 4 === -->
+<div class="evidence-group" style="top: 320vh;">
+    <div class="floating-item evidence-note" data-depth="0.2" style="left: 18%; width: 230px;">
+        <div class="tape-bottom"></div>
+        Your laugh fixes everything 🎵
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.7" style="left: 50%; width: 14vw;">
+        <img src="photo-4.jpg" alt="Memory 4">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item bear-note" data-depth="0.4" style="left: 85%; width: 130px;">
+        <img src="bears/bear-note.svg" alt="Bear with note" class="bear-img">
+        <div class="note-text">Evidence: Saved my soul</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 5 === -->
+<div class="evidence-group" style="top: 400vh;">
+    <div class="floating-item evidence-note" data-depth="0.6" style="left: 15%; width: 230px;">
+        <div class="pin-bottom-left"></div>
+        You’re the definition of “good vibes only” 🌈
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.3" style="left: 48%; width: 14vw;">
+        <img src="photo-5.jpg" alt="Memory 5">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item kpop-bear glow-bear" data-depth="0.5" style="left: 80%; width: 10vw;" data-group="Lightstick">
+        <img src="bears/bear-lightstick.svg" alt="Lightstick Bear" class="bear-img clickable">
+        <div class="group-tag">✨ Suspect: Glow</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 6 === -->
+<div class="evidence-group" style="top: 480vh;">
+    <div class="floating-item evidence-note" data-depth="0.3" style="left: 18%; width: 230px;">
+        <div class="tape-top"></div>
+        You make everyone around you better 🌟
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.5" style="left: 50%; width: 14vw;">
+        <img src="photo-6.jpg" alt="Memory 6">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item kpop-bear" data-depth="0.2" style="left: 85%; width: 12vw;" data-group="Stray Kids">
+        <img src="bears/bear-skz.svg" alt="Stray Kids Bear" class="bear-img clickable">
+        <div class="group-tag">🦿 Suspect: SKZ</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 7 === -->
+<div class="evidence-group" style="top: 560vh;">
+    <div class="floating-item evidence-note" data-depth="0.4" style="left: 15%; width: 230px;">
+        <div class="pin-top-left"></div>
+        You’re beautiful — inside, outside, everywhere 🌺
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.6" style="left: 48%; width: 14vw;">
+        <img src="photo-7.jpg" alt="Memory 7">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item bear-note" data-depth="0.5" style="left: 80%; width: 130px;">
+        <img src="bears/bear-note.svg" alt="Bear with note" class="bear-img">
+        <div class="note-text">Evidence: Midnight dancer</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 8 === -->
+<div class="evidence-group" style="top: 640vh;">
+    <div class="floating-item evidence-note" data-depth="0.5" style="left: 18%; width: 230px;">
+        <div class="tape-bottom"></div>
+        Your energy is contagious (in the best way) 🔋
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.4" style="left: 50%; width: 14vw;">
+        <img src="photo-8.jpg" alt="Memory 8">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item bear-note" data-depth="0.3" style="left: 85%; width: 130px;">
+        <img src="bears/bear-note.svg" alt="Bear with note" class="bear-img">
+        <div class="note-text">Evidence: ANI Stan</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 9 === -->
+<div class="evidence-group" style="top: 720vh;">
+    <div class="floating-item evidence-note" data-depth="0.3" style="left: 15%; width: 230px;">
+        <div class="pin-top-right"></div>
+        You’re effortlessly cool — and you don’t even try 😎
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.5" style="left: 48%; width: 14vw;">
+        <img src="photo-9.jpg" alt="Memory 9">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item kpop-bear" data-depth="0.2" style="left: 80%; width: 11vw;" data-group="TWICE">
+        <img src="bears/bear-twice.svg" alt="TWICE Bear" class="bear-img clickable">
+        <div class="group-tag">💖 Suspect: ONCE</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 10 === -->
+<div class="evidence-group" style="top: 800vh;">
+    <div class="floating-item evidence-note" data-depth="0.4" style="left: 18%; width: 230px;">
+        <div class="tape-top"></div>
+        You’re the friend everyone wishes they had 🤝
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.6" style="left: 50%; width: 14vw;">
+        <img src="photo-10.jpg" alt="Memory 10">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item bear-note" data-depth="0.3" style="left: 85%; width: 130px;">
+        <img src="bears/bear-note.svg" alt="Bear with note" class="bear-img">
+        <div class="note-text">Evidence: Ride or die</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 11 === -->
+<div class="evidence-group" style="top: 880vh;">
+    <div class="floating-item evidence-note" data-depth="0.5" style="left: 15%; width: 230px;">
+        <div class="pin-bottom-left"></div>
+        You’re strong, soft, and absolutely unforgettable 💫
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.4" style="left: 48%; width: 14vw;">
+        <img src="photo-11.jpg" alt="Memory 11">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item kpop-bear" data-depth="0.3" style="left: 80%; width: 12vw;" data-group="ENHYPEN">
+        <img src="bears/bear-enhypen.svg" alt="ENHYPEN Bear" class="bear-img clickable">
+        <div class="group-tag">🩸 Suspect: Vampire</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 12 === -->
+<div class="evidence-group" style="top: 960vh;">
+    <div class="floating-item evidence-note" data-depth="0.2" style="left: 18%; width: 230px;">
+        <div class="tape-bottom"></div>
+        You turn bad days into bear-hug days 🐻
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.7" style="left: 50%; width: 14vw;">
+        <img src="photo-12.jpg" alt="Memory 12">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item bear-note" data-depth="0.4" style="left: 85%; width: 130px;">
+        <img src="bears/bear-note.svg" alt="Bear with note" class="bear-img">
+        <div class="note-text">Evidence: Mood booster</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 13 === -->
+<div class="evidence-group" style="top: 1040vh;">
+    <div class="floating-item evidence-note" data-depth="0.6" style="left: 15%; width: 230px;">
+        <div class="pin-top-right"></div>
+        You’re weird, wonderful, and 100% you — and that’s perfect 🦄
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.3" style="left: 48%; width: 14vw;">
+        <img src="photo-13.jpg" alt="Memory 13">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item kpop-bear glow-bear" data-depth="0.5" style="left: 80%; width: 10vw;" data-group="Lightstick">
+        <img src="bears/bear-lightstick.svg" alt="Lightstick Bear" class="bear-img clickable">
+        <div class="group-tag">✨ Suspect: Shine</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 14 === -->
+<div class="evidence-group" style="top: 1120vh;">
+    <div class="floating-item evidence-note" data-depth="0.3" style="left: 18%; width: 230px;">
+        <div class="tape-top"></div>
+        You’re the human version of a warm hug 🫂
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.5" style="left: 50%; width: 14vw;">
+        <img src="photo-14.jpg" alt="Memory 14">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item kpop-bear" data-depth="0.2" style="left: 85%; width: 12vw;" data-group="Stray Kids">
+        <img src="bears/bear-skz.svg" alt="Stray Kids Bear" class="bear-img clickable">
+        <div class="group-tag">🦿 Suspect: Wolf</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 15 === -->
+<div class="evidence-group" style="top: 1200vh;">
+    <div class="floating-item evidence-note" data-depth="0.4" style="left: 15%; width: 230px;">
+        <div class="pin-top-left"></div>
+        You’re the reason “perfect” has a new definition 📖
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.6" style="left: 48%; width: 14vw;">
+        <img src="photo-15.jpg" alt="Memory 15">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item bear-note" data-depth="0.5" style="left: 80%; width: 130px;">
+        <img src="bears/bear-note.svg" alt="Bear with note" class="bear-img">
+        <div class="note-text">Evidence: Legend</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 16 === -->
+<div class="evidence-group" style="top: 1280vh;">
+    <div class="floating-item evidence-note" data-depth="0.5" style="left: 18%; width: 230px;">
+        <div class="tape-bottom"></div>
+        You’re not just loved — you’re cherished beyond words 💌
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.4" style="left: 50%; width: 14vw;">
+        <img src="photo-16.jpg" alt="Memory 16">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item bear-note" data-depth="0.3" style="left: 85%; width: 130px;">
+        <img src="bears/bear-note.svg" alt="Bear with note" class="bear-img">
+        <div class="note-text">Evidence: Heart holder</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 17 === -->
+<div class="evidence-group" style="top: 1360vh;">
+    <div class="floating-item evidence-note" data-depth="0.3" style="left: 15%; width: 230px;">
+        <div class="pin-top-right"></div>
+        You’re my favorite notification 📱
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.5" style="left: 48%; width: 14vw;">
+        <img src="photo-17.jpg" alt="Memory 17">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item kpop-bear" data-depth="0.2" style="left: 80%; width: 11vw;" data-group="TWICE">
+        <img src="bears/bear-twice.svg" alt="TWICE Bear" class="bear-img clickable">
+        <div class="group-tag">💖 Suspect: Cheer</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 18 === -->
+<div class="evidence-group" style="top: 1440vh;">
+    <div class="floating-item evidence-note" data-depth="0.4" style="left: 18%; width: 230px;">
+        <div class="tape-top"></div>
+        You’re the main character — and you wear it so well 🎬
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.6" style="left: 50%; width: 14vw;">
+        <img src="photo-18.jpg" alt="Memory 18">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item bear-note" data-depth="0.3" style="left: 85%; width: 130px;">
+        <img src="bears/bear-note.svg" alt="Bear with note" class="bear-img">
+        <div class="note-text">Evidence: Star</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 19 === -->
+<div class="evidence-group" style="top: 1520vh;">
+    <div class="floating-item evidence-note" data-depth="0.5" style="left: 15%; width: 230px;">
+        <div class="pin-bottom-left"></div>
+        You’re the kind of person people remember forever 🌹
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.4" style="left: 48%; width: 14vw;">
+        <img src="photo-19.jpg" alt="Memory 19">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item kpop-bear" data-depth="0.3" style="left: 80%; width: 12vw;" data-group="ENHYPEN">
+        <img src="bears/bear-enhypen.svg" alt="ENHYPEN Bear" class="bear-img clickable">
+        <div class="group-tag">🩸 Suspect: Muse</div>
+    </div>
+</div>
+
+<!-- === ГРУППА 20 (ФИНАЛ) === -->
+<div class="evidence-group" style="top: 1600vh;">
+    <div class="floating-item evidence-note" data-depth="0.2" style="left: 18%; width: 230px;">
+        <div class="tape-bottom"></div>
+        You’re my favorite place to be — no matter where we are 🗺️
+    </div>
+    <div class="floating-item photo-frame" data-depth="0.7" style="left: 50%; width: 14vw;">
+        <img src="photo-20.jpg" alt="Memory 20">
+        <div class="photo-pin"></div>
+    </div>
+    <div class="floating-item kpop-bear glow-bear secret-bear" data-depth="0.5" style="left: 80%; width: 10vw;" data-group="Secret">
+        <img src="bears/bear-lightstick.svg" alt="Secret Bear" class="bear-img clickable">
+        <div class="group-tag">🕵️ FINAL SUSPECT</div>
+    </div>
+</div>
+
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
