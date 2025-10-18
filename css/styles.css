@@ -1,58 +1,83 @@
 /* Základní nastavení a "vesmírné" proměnné */
 :root {
-    --purple: #8e2de2;
-    --orange: #ff6a00;
-    --dark-space: #0f0c29;
-    --mid-space: #24243e;
-    --light-text: #f0f0f0;
-    --mid-text: #a0a0b8;
-    --glow-color: rgba(142, 45, 226, 0.6);
+    /* --- НОВАЯ ЦВЕТОВАЯ СХЕМА: "Мун" (Темно-синий/Фиолетовый) --- */
+    --primary: #4a6fa5; /* Основной синий */
+    --secondary: #6d5ac4; /* Вторичный фиолетовый */
+    --accent: #ff7a8a; /* Яркий акцентный цвет (розово-оранжевый) для контраста */
+    --dark-space: #0a0f2c; /* Темный фон (лунный / глубокий синий) */
+    --mid-space: #1a1f3a; /* Средний темный оттенок */
+    --light-text: #e0e7ff; /* Светлый текст */
+    --mid-text: #a0aec0; /* Средний текст */
+    --glow-color: rgba(109, 90, 196, 0.6); /* Цвет свечения для нового акцента */
     --border-color: rgba(255, 255, 255, 0.1);
     --font-family: 'Poppins', sans-serif;
     --transition-speed: 0.4s;
+    /* --- /НОВАЯ ЦВЕТОВАЯ СХЕМА --- */
 }
 
+/* Остальная часть CSS остается та же, но использует новые переменные */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font-family); background: linear-gradient(180deg, var(--dark-space) 0%, #000 100%); color: var(--light-text); overflow-x: hidden; }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
 /* Navigace */
-.navbar { background: rgba(15, 12, 41, 0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; transition: background var(--transition-speed) ease; }
+.navbar { background: rgba(10, 15, 44, 0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; transition: background var(--transition-speed) ease; }
 .navbar .container { display: flex; justify-content: space-between; align-items: center; }
-.nav-logo { font-weight: 700; font-size: 1.8rem; text-decoration: none; background: linear-gradient(90deg, var(--purple), var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.nav-logo { font-weight: 700; font-size: 1.8rem; text-decoration: none; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .nav-menu { list-style: none; display: flex; align-items: center; }
 .nav-item { margin-left: 2rem; }
 .nav-link { color: var(--mid-text); text-decoration: none; font-weight: 400; transition: color var(--transition-speed) ease; padding-bottom: 5px; border-bottom: 2px solid transparent; }
-.nav-link:hover { color: var(--light-text); border-bottom-color: var(--purple); }
-/* Добавь это в конец секции "Navigace" в файле styles.css */
+.nav-link:hover { color: var(--light-text); border-bottom-color: var(--secondary); }
 .nav-link.active {
     color: var(--light-text);
-    border-bottom-color: var(--purple);
+    border-bottom-color: var(--secondary);
 }
 
 /* Hero sekce */
 #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; padding-top: 80px; }
 #space-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-.hero-content { position: relative; z-index: 2; }
-.hero-title { font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; background: linear-gradient(90deg, var(--purple), var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.hero-subtitle { font-size: 1.3rem; font-weight: 300; color: var(--mid-text); margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+.hero-content { position: relative; z-index: 2; padding: 2rem; /* Добавим отступы для "окна" */ background: rgba(10, 15, 44, 0.4); /* Полупрозрачный фон "окна" в твоей теме */ backdrop-filter: blur(5px); /* Эффект размытия */ border-radius: 20px; /* Скругление углов */ border: 1px solid var(--border-color); /* Тонкая граница */ max-width: 800px; /* Ограничиваем ширину */ margin: 0 auto; /* Центрируем */ }
 
+/* --- ИЗМЕНЕННЫЙ ЗАГОЛОВОК --- */
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Адаптивный размер шрифта */
+    font-weight: 700;
+    margin-bottom: 1rem;
+    /* Вместо градиента, используем яркий акцентный цвет и возможно тень */
+    color: var(--light-text);
+    text-shadow: 0 0 10px var(--glow-color); /* Лёгкое свечение */
+    /* Опционально: добавить "объём" */
+    /* transform: perspective(500px) translateZ(10px); */
+}
+/* --- /ИЗМЕНЕННЫЙ ЗАГОЛОВОК --- */
+
+.hero-subtitle {
+    font-size: 1.2rem; /* Чуть уменьшим для баланса */
+    font-weight: 300;
+    color: var(--mid-text);
+    margin-bottom: 2.5rem;
+    max-width: 600px; /* Ограничиваем ширину подзаголовка */
+    margin-left: auto;
+    margin-right: auto;
+    /* Опционально: добавить лёгкое свечение или тень */
+    /* text-shadow: 0 0 5px rgba(160, 174, 192, 0.2); */
+}
 /* Tlačítko */
-.btn { padding: 0.8rem 2rem; text-decoration: none; border-radius: 50px; font-weight: 600; color: var(--light-text); background: linear-gradient(90deg, var(--purple), var(--orange)); border: none; transition: all var(--transition-speed) ease; box-shadow: 0 0 15px var(--glow-color); background-size: 200% auto; display: inline-block; }
+.btn { padding: 0.8rem 2rem; text-decoration: none; border-radius: 50px; font-weight: 600; color: var(--light-text); background: linear-gradient(90deg, var(--secondary), var(--accent)); /* Изменен градиент кнопки */ border: none; transition: all var(--transition-speed) ease; box-shadow: 0 0 15px var(--glow-color); background-size: 200% auto; display: inline-block; }
 .btn:hover { background-position: right center; transform: scale(1.05); }
 
 /* Společné styly pro sekce */
 .content-section { padding: 6rem 0; opacity: 0; transform: translateY(50px); transition: opacity 1s ease-out, transform 1s ease-out; }
 .content-section.visible { opacity: 1; transform: translateY(0); }
-.section-title { font-size: 3rem; font-weight: 600; text-align: center; margin-bottom: 4rem; background: linear-gradient(90deg, var(--purple) 0%, var(--orange) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.section-title { font-size: 3rem; font-weight: 600; text-align: center; margin-bottom: 4rem; background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
 /* === НОВЫЕ СТИЛИ: БЛОК ОБО МНЕ === */
 .about-me-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; }
-.about-me-photo img { width: 100%; max-width: 300px; border-radius: 50%; border: 5px solid var(--purple); box-shadow: 0 0 25px var(--glow-color); }
+.about-me-photo img { width: 100%; max-width: 300px; border-radius: 50%; border: 5px solid var(--primary); /* Изменен цвет рамки */ box-shadow: 0 0 25px var(--glow-color); }
 .about-me-text p { color: var(--mid-text); line-height: 1.8; margin-bottom: 1.5rem; }
-.trust-badge { display: flex; align-items: center; gap: 1rem; background-color: var(--mid-space); padding: 1rem; border-radius: 10px; border-left: 4px solid var(--orange); }
-.trust-badge i { font-size: 1.5rem; color: var(--orange); }
+.trust-badge { display: flex; align-items: center; gap: 1rem; background-color: var(--mid-space); padding: 1rem; border-radius: 10px; border-left: 4px solid var(--accent); /* Изменен цвет акцента */ }
+.trust-badge i { font-size: 1.5rem; color: var(--accent); }
 .trust-badge p { margin: 0; color: var(--light-text); font-size: 0.9rem; }
 
 /* === НОВЫЕ СТИЛИ: БЛОК ОТЗЫВОВ === */
@@ -64,9 +89,9 @@ body { font-family: var(--font-family); background: linear-gradient(180deg, var(
 
 /* Služby */
 .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-.service-card { background: linear-gradient(145deg, rgba(36, 36, 62, 0.4), rgba(15, 12, 41, 0.4)); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid var(--border-color); border-radius: 15px; padding: 2.5rem; transition: all var(--transition-speed) ease; text-align: center; }
-.service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); border-color: rgba(142, 45, 226, 0.5); }
-.service-card i { font-size: 2.5rem; margin-bottom: 1.5rem; background: linear-gradient(90deg, var(--purple), var(--orange)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.service-card { background: linear-gradient(145deg, rgba(26, 31, 58, 0.4), rgba(10, 15, 44, 0.4)); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid var(--border-color); border-radius: 15px; padding: 2.5rem; transition: all var(--transition-speed) ease; text-align: center; }
+.service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); border-color: rgba(109, 90, 196, 0.5); }
+.service-card i { font-size: 2.5rem; margin-bottom: 1.5rem; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .service-card h3 { font-size: 1.6rem; color: var(--light-text); margin-bottom: 1rem; }
 .service-card p { color: var(--mid-text); line-height: 1.7; }
 
@@ -81,14 +106,14 @@ body { font-family: var(--font-family); background: linear-gradient(180deg, var(
 .case-study-content h3 { font-size: 1.8rem; color: var(--light-text); margin-bottom: 1.5rem; }
 .case-study-content p { color: var(--mid-text); line-height: 1.7; margin-bottom: 1rem; }
 .case-study-content strong { color: var(--light-text); }
-.case-study-link { color: var(--orange); text-decoration: none; font-weight: 600; transition: color var(--transition-speed) ease; }
-.case-study-link:hover { color: var(--purple); }
+.case-study-link { color: var(--accent); /* Изменен цвет ссылки */ text-decoration: none; font-weight: 600; transition: color var(--transition-speed) ease; }
+.case-study-link:hover { color: var(--secondary); }
 
 
 /* Proces */
 .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; }
 .step { padding: 2rem; }
-.step-icon { width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(90deg, var(--purple), var(--orange)); color: var(--light-text); font-size: 2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+.step-icon { width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(90deg, var(--primary), var(--secondary)); color: var(--light-text); font-size: 2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
 .step h3 { font-size: 1.5rem; color: var(--light-text); margin-bottom: 1rem; }
 .step p { color: var(--mid-text); line-height: 1.7; }
 
@@ -104,7 +129,7 @@ body { font-family: var(--font-family); background: linear-gradient(180deg, var(
 .contact-subtitle { max-width: 600px; margin: 0 auto 2rem; color: var(--mid-text); }
 .email-btn { font-size: 1.2rem; display: inline-block; margin-bottom: 2.5rem; }
 .social-links a { color: var(--mid-text); text-decoration: none; margin: 0 1rem; font-size: 2rem; transition: all var(--transition-speed) ease; }
-.social-links a:hover { color: var(--purple); transform: scale(1.1); }
+.social-links a:hover { color: var(--secondary); transform: scale(1.1); }
 /* === Обновленный футер === */
 .site-footer {
     background-color: var(--dark-space);
@@ -131,7 +156,7 @@ body { font-family: var(--font-family); background: linear-gradient(180deg, var(
     font-weight: 700;
     font-size: 2rem;
     text-decoration: none;
-    background: linear-gradient(90deg, var(--purple), var(--orange));
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -153,7 +178,7 @@ body { font-family: var(--font-family); background: linear-gradient(180deg, var(
 }
 
 .footer-socials a:hover {
-    color: var(--purple);
+    color: var(--secondary);
     transform: scale(1.1);
 }
 
@@ -188,13 +213,13 @@ body { font-family: var(--font-family); background: linear-gradient(180deg, var(
 }
 
 .footer-email:hover {
-    color: var(--orange);
+    color: var(--accent);
 }
 
 .footer-contact-btn {
     display: inline-block;
     margin-top: 1rem;
-    color: var(--orange);
+    color: var(--accent);
     text-decoration: none;
     font-weight: 600;
 }
@@ -239,11 +264,11 @@ body { font-family: var(--font-family); background: linear-gradient(180deg, var(
 
 /* Старый стиль для футера (нужно удалить или закомментировать) */
 /*
-footer { 
-    padding: 2rem 0; 
-    text-align: center; 
-    border-top: 1px solid var(--border-color); 
-    color: var(--mid-text); 
+footer {
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    color: var(--mid-text);
 }
 */
 /* Responsivní design */
@@ -255,7 +280,7 @@ footer {
     .case-study-card, .case-study-card:nth-child(even) { grid-template-columns: 1fr; }
     .case-study-card:nth-child(even) .case-study-image { order: 0; }
     /* Логика для мобильного меню (burger) здесь */
-    .nav-menu { display: none; } 
+    .nav-menu { display: none; }
 }
 /* === Стили для секции "Proč my / Náš přístup" на hlavní stránce === */
 .why-us-section {
@@ -279,7 +304,7 @@ footer {
 
 .value-card:hover {
     transform: translateY(-10px);
-    border-color: var(--purple);
+    border-color: var(--secondary); /* Изменен цвет рамки при наведении */
 }
 
 .value-icon {
@@ -290,7 +315,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(90deg, var(--purple), var(--orange));
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
     font-size: 2rem;
     color: var(--light-text);
 }
@@ -325,7 +350,7 @@ footer {
     transition: all 0.4s ease;
 }
 .team-intro-card:hover img {
-    border-color: var(--purple);
+    border-color: var(--primary); /* Изменен цвет рамки при наведении */
     transform: scale(1.05);
 }
 .team-intro-card h3 {
@@ -334,7 +359,7 @@ footer {
     color: var(--light-text);
 }
 .team-intro-card p {
-    color: var(--orange);
+    color: var(--accent); /* Изменен цвет роли */
     font-weight: 500;
 }
 .team-intro-cta {
@@ -400,7 +425,7 @@ footer {
 }
 
 .team-intro-card:hover img, .team-intro-card:hover .team-photo-placeholder {
-    border-color: var(--purple);
+    border-color: var(--primary); /* Изменен цвет рамки при наведении */
     transform: scale(1.05);
 }
 
@@ -421,7 +446,7 @@ footer {
     color: var(--light-text);
 }
 .team-intro-card p {
-    color: var(--orange);
+    color: var(--accent); /* Изменен цвет роли */
     font-weight: 500;
 }
 .team-intro-cta {

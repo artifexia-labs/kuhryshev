@@ -1,193 +1,370 @@
-/* === Стили для страницы proces.html === */
+/* === Стили для страницы proces.html (новая структура "Поток") === */
 
-/* Hero блок для внутренних страниц - стили уже есть в portfolio.css, здесь можно добавить переопределения при необходимости */
+/* --- Анимированный фон "потока" --- */
+.workflow-stream-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Позади всего */
+    background: var(--dark-space);
+    overflow: hidden;
+}
+
+/* Линии "потока" */
+.workflow-stream-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(90deg, transparent 0%, rgba(74, 111, 165, 0.1) 50%, transparent 100%),
+        linear-gradient(0deg, transparent 0%, rgba(109, 90, 196, 0.1) 50%, transparent 100%);
+    background-size: 200px 200px;
+    animation: streamFlow 20s linear infinite; /* Анимация движения сетки */
+}
+
+/* Код "внутри" фона */
+.workflow-stream-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 1px,
+            rgba(160, 174, 192, 0.05) 1px,
+            rgba(160, 174, 192, 0.05) 2px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 1px,
+            rgba(160, 174, 192, 0.05) 1px,
+            rgba(160, 174, 192, 0.05) 2px
+        );
+    /* animation: codeScroll 30s linear infinite; /* Опционально: движение "кода" */
+}
+
+@keyframes streamFlow {
+    0% { background-position: 0 0; }
+    100% { background-position: 200px 200px; }
+}
+
+@keyframes codeScroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 100vh; }
+}
+/* --- /Анимированный фон --- */
+
+
 #page-hero {
     padding-top: 150px;
     padding-bottom: 80px;
     text-align: center;
-    background: var(--dark-space);
+    /* background: var(--dark-space); /* Убираем фиксированный фон, он теперь в .workflow-stream-bg */
+    position: relative; /* Для слоёв */
+    z-index: 1; /* Поверх фона */
 }
 
-/* === Основной блок: Детализированный процесс (Timeline) === */
-#process-detailed.content-section {
+/* === Блок: Основные принципы (с анимацией плавания) === */
+#process-overview.content-section {
     padding-top: 4rem;
+    position: relative; /* Для слоёв */
+    z-index: 1; /* Поверх фона */
 }
 
-.process-timeline {
-    position: relative;
-    max-width: 900px;
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem 0;
 }
 
-/* Центральная вертикальная линия */
-.process-timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 3px;
-    height: 100%;
-    background: linear-gradient(180deg, var(--purple), var(--orange));
-    box-shadow: 0 0 10px var(--glow-color);
+.principle-card {
+    background: var(--mid-space);
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    transition: all 0.4s ease;
+    /* --- Анимация плавания --- */
+    animation: float 6s ease-in-out infinite;
+    transform-origin: center bottom; /* Точка вращения */
 }
 
-.timeline-item {
-    padding: 1rem 3rem;
-    position: relative;
-    width: 50%;
-    box-sizing: border-box;
+.principle-card:nth-child(2) { animation-delay: 1s; }
+.principle-card:nth-child(3) { animation-delay: 2s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(0.5deg); }
+}
+/* --- /Анимация плавания --- */
+
+.principle-card:hover {
+    transform: translateY(-10px) scale(1.02); /* Усиливаем hover */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-color: var(--secondary);
 }
 
-/* Расположение карточек слева */
-.timeline-item:nth-child(odd) {
-    left: 0;
-    padding-right: 4rem;
-    text-align: right;
-}
-
-/* Расположение карточек справа */
-.timeline-item:nth-child(even) {
-    left: 50%;
-    padding-left: 4rem;
-}
-
-/* Иконки на линии */
-.timeline-icon {
-    position: absolute;
-    top: 25px;
-    z-index: 10;
-    width: 50px;
-    height: 50px;
+.principle-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
     border-radius: 50%;
-    background: linear-gradient(90deg, var(--purple), var(--orange));
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    font-size: 2rem;
+    color: var(--light-text);
+}
+
+.principle-card h3 {
     font-size: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--light-text);
-    border: 3px solid var(--dark-space);
-    box-shadow: 0 0 15px var(--glow-color);
 }
 
-.timeline-item:nth-child(odd) .timeline-icon {
-    right: 0;
-    transform: translateX(50%);
-}
-
-.timeline-item:nth-child(even) .timeline-icon {
-    left: 0;
-    transform: translateX(-50%);
-}
-
-/* Контентная часть карточки */
-.timeline-content {
-    padding: 1.5rem 2rem;
-    background: var(--mid-space);
-    border: 1px solid var(--border-color);
-    border-radius: 15px;
-    position: relative;
-    transition: all var(--transition-speed) ease;
-}
-
-.timeline-content:hover {
-    transform: scale(1.03);
-    border-color: var(--purple);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-.step-number {
-    display: inline-block;
-    color: var(--orange);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.timeline-content h3 {
-    font-size: 1.6rem;
-    color: var(--light-text);
-    margin-bottom: 0.75rem;
-}
-
-.timeline-content p {
+.principle-card p {
     color: var(--mid-text);
     line-height: 1.7;
 }
 
-/* === Адаптация для мобильных устройств === */
+/* === Блок: Детальный процесс === */
+#process-detailed.content-section {
+    padding-top: 4rem;
+    position: relative; /* Для слоёв */
+    z-index: 1; /* Поверх фона */
+}
+
+.process-steps-expanded {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.step-expanded {
+    background: var(--mid-space);
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.step-expanded:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-color: var(--secondary);
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(26, 31, 58, 0.6); /* Темный фон для заголовка */
+    cursor: pointer; /* Делаем вид, что можно кликнуть */
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--secondary);
+    color: var(--light-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    flex-shrink: 0; /* Не сжимается */
+}
+
+.step-header h3 {
+    font-size: 1.4rem;
+    color: var(--light-text);
+    margin: 0;
+    flex-grow: 1; /* Растягивается */
+}
+
+.step-content {
+    padding: 2rem;
+    display: none; /* Сначала скрыто */
+}
+
+.step-expanded.active .step-content {
+    display: block; /* Показывается, если активен */
+    animation: fadeInSlideUp 0.5s ease-out forwards; /* Анимация появления */
+}
+
+@keyframes fadeInSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.step-content p {
+    color: var(--mid-text);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.step-content p strong {
+    color: var(--light-text);
+}
+
+/* Блок с техническими деталями */
+.step-tech-highlight {
+    background: rgba(10, 15, 44, 0.4); /* Полупрозрачный фон */
+    padding: 1rem;
+    border-radius: 10px;
+    border-left: 3px solid var(--accent);
+    margin: 1rem 0;
+}
+
+.step-tech-highlight h4 {
+    color: var(--accent);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.step-tech-highlight ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.step-tech-highlight li {
+    color: var(--mid-text);
+    line-height: 1.6;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.step-tech-highlight li::before {
+    content: '•';
+    color: var(--secondary);
+    position: absolute;
+    left: 0;
+}
+
+/* --- Микро-контент --- */
+.micro-content {
+    background: rgba(26, 31, 58, 0.6); /* Темный фон */
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary);
+    margin: 1rem 0;
+    border: 1px solid var(--border-color);
+}
+
+.micro-content h5 {
+    color: var(--light-text);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    background: var(--primary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.micro-content p {
+    color: var(--mid-text);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+/* --- /Микро-контент --- */
+
+/* --- "Живой" терминал --- */
+.terminal-emulator {
+    background: var(--dark-space);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    font-family: 'Courier New', monospace; /* Моноширинный шрифт */
+    position: relative; /* Для слоёв */
+    z-index: 2; /* Поверх фона */
+}
+
+.terminal-header {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.terminal-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.terminal-red { background-color: #ff5f56; }
+.terminal-yellow { background-color: #ffbd2e; }
+.terminal-green { background-color: #27c93f; }
+
+.terminal-body {
+    color: var(--light-text);
+    white-space: pre-wrap; /* Сохраняем переносы строк */
+}
+
+.terminal-line {
+    margin-bottom: 0.5rem;
+    color: var(--mid-text);
+    animation: terminalBlink 1s infinite; /* Мигающий курсор */
+}
+
+.terminal-line:last-child {
+    animation: none;
+}
+
+.terminal-line::after {
+    content: '_';
+    animation: terminalBlink 1s infinite;
+    color: var(--light-text);
+}
+
+@keyframes terminalBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+/* --- /Живой терминал --- */
+
+/* --- Адаптивность --- */
 @media (max-width: 768px) {
-    /* Сдвигаем линию влево */
-    .process-timeline::before {
-        left: 25px;
-        transform: translateX(0);
+    #page-hero {
+        padding-top: 120px;
+        padding-bottom: 60px;
     }
 
-    /* Все карточки располагаем справа от линии */
-    .timeline-item,
-    .timeline-item:nth-child(even) {
-        width: 100%;
-        left: 0;
-        padding-left: 65px; /* Отступ от иконки */
-        padding-right: 1rem;
-        text-align: left;
-    }
-    
-    .timeline-item:nth-child(odd) {
-        text-align: left;
+    .page-title {
+        font-size: 2.2rem;
     }
 
-    /* Иконки ставим на левую линию */
-    .timeline-icon,
-    .timeline-item:nth-child(even) .timeline-icon,
-    .timeline-item:nth-child(odd) .timeline-icon {
-        left: 25px;
-        transform: translateX(-50%);
+    .principles-grid {
+        grid-template-columns: 1fr;
     }
 
-    .timeline-item {
-        padding-top: 0;
-        margin-bottom: 2rem;
-    }
-    
-    .timeline-content h3 {
-        font-size: 1.4rem;
-    }
-}
-/* === Стили для Анимации === */
-
-/* Начальное состояние карточек до анимации */
-.timeline-item {
-    opacity: 0;
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-/* Сдвигаем левые карточки влево */
-.timeline-item:nth-child(odd) {
-    transform: translateX(-50px);
-}
-
-/* Сдвигаем правые карточки вправо */
-.timeline-item:nth-child(even) {
-    transform: translateX(50px);
-}
-
-/* Конечное состояние карточек после появления анимации */
-.timeline-item.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* Для мобильных устройств убираем сдвиг по горизонтали и делаем плавное появление снизу */
-@media (max-width: 768px) {
-    .timeline-item,
-    .timeline-item:nth-child(even),
-    .timeline-item:nth-child(odd) {
-        transform: translateY(50px); /* Начальный сдвиг снизу */
+    .floating-element {
+        animation: none; /* Отключаем анимацию плавания на мобильных */
     }
 
-    .timeline-item.visible {
-        transform: translateY(0); /* Возвращаем на место */
+    .step-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .step-content {
+        padding: 1.5rem;
     }
 }

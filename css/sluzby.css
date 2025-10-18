@@ -1,33 +1,153 @@
-/* === Стили для страницы sluzby.html === */
+/* === Стили для страницы sluzby.html (улучшенные) === */
+
+/* --- Анимированный фон (опционально, как на proces.html) --- */
+/* Если хочешь, можно добавить .workflow-stream-bg сюда, как в proces.css */
+/* --- /Анимированный фон --- */
 
 #page-hero {
     padding-top: 150px;
     padding-bottom: 80px;
     text-align: center;
+    background: var(--dark-space);
+    position: relative; /* Для слоёв */
+    z-index: 1;
+}
+
+/* --- Анимации для Hero --- */
+.animated-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: titleGlow 3s infinite alternate;
+}
+
+@keyframes titleGlow {
+    0% { filter: brightness(1) drop-shadow(0 0 5px rgba(74, 111, 165, 0.5)); }
+    100% { filter: brightness(1.2) drop-shadow(0 0 15px rgba(109, 90, 196, 0.8)); }
+}
+
+.animated-subtitle {
+    font-size: 1.3rem;
+    color: var(--mid-text);
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* --- /Анимации для Hero --- */
+
+/* === Блок: Общий принцип (Approach Overview) === */
+#approach-overview.content-section {
+    padding-top: 4rem;
+    position: relative; /* Для слоёв */
+    z-index: 1;
+}
+
+.approach-card {
+    background: var(--mid-space);
+    border-radius: 15px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    transition: all 0.4s ease;
+    /* --- Анимация плавания --- */
+    animation: float 6s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+.approach-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-color: var(--secondary);
+}
+
+.approach-icon {
+    width: 70px;
+    height: 70px;
+    margin-right: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    font-size: 2rem;
+    color: var(--light-text);
+    flex-shrink: 0; /* Не сжимается */
+}
+
+.approach-text h3 {
+    font-size: 1.8rem;
+    color: var(--light-text);
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.approach-text p {
+    color: var(--mid-text);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* === Обновлённая секция услуг === */
+#services-detailed.content-section {
+    padding-top: 4rem;
+    position: relative; /* Для слоёв */
+    z-index: 1;
 }
 
 .services-detailed-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-    align-items: stretch; /* Karty budou stejně vysoké */
+    gap: 2.5rem; /* Увеличим отступ */
+    align-items: stretch;
 }
 
+/* --- УЛУЧШЕННЫЕ карточки услуг --- */
 .service-detailed-card {
     background: var(--mid-space);
     border: 1px solid var(--border-color);
-    border-radius: 15px;
+    border-radius: 20px; /* Более закруглённые */
     padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
     text-align: center;
-    transition: all var(--transition-speed) ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Плавность */
+    /* --- Анимация плавания (для карточек) --- */
+    animation: floatService 8s ease-in-out infinite;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s ease, transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.service-detailed-card:nth-child(2) { animation-delay: 0.5s; }
+.service-detailed-card:nth-child(3) { animation-delay: 1s; }
+
+@keyframes floatService {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(0.2deg); }
+}
+
+.service-detailed-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .service-detailed-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    border-color: var(--purple);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(109, 90, 196, 0.4); /* Изменим тень */
+    border-color: var(--secondary); /* Цвет границы */
 }
 
 .service-icon-bg {
@@ -38,28 +158,37 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(90deg, var(--purple), var(--orange));
+    background: linear-gradient(90deg, var(--primary), var(--secondary)); /* Используем новую схему */
     font-size: 2.5rem;
     color: var(--light-text);
+    transition: transform 0.3s ease; /* Анимация иконки */
+}
+
+.service-detailed-card:hover .service-icon-bg {
+    transform: scale(1.1) rotate(5deg); /* Поворот и увеличение при наведении */
 }
 
 .service-detailed-card h3 {
     font-size: 1.8rem;
     color: var(--light-text);
     margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--primary), var(--secondary)); /* Градиентный заголовок */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .service-description {
     color: var(--mid-text);
     line-height: 1.7;
     margin-bottom: 2rem;
-    flex-grow: 1; /* Popis se roztáhne a tlačítko bude dole */
+    flex-grow: 1;
 }
 
 .service-features {
     list-style: none;
     text-align: left;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* Уменьшим отступ перед микро-контентом */
     padding-left: 1rem;
     color: var(--mid-text);
 }
@@ -67,53 +196,125 @@
 .service-features li {
     margin-bottom: 0.8rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Выравнивание по верхнему краю */
 }
 
 .service-features li i {
-    color: var(--purple);
+    color: var(--secondary); /* Используем новый цвет */
     margin-right: 1rem;
     font-size: 1.2rem;
+    margin-top: 0.3rem; /* Выровняем иконку с текстом */
+    flex-shrink: 0; /* Иконка не сжимается */
 }
 
 /* Zvýraznění doporučené služby */
 .service-detailed-card.featured {
-    border-color: var(--purple);
-    transform: scale(1.05);
+    border-color: var(--secondary); /* Используем новый цвет */
     box-shadow: 0 0 30px var(--glow-color);
+    position: relative; /* Для позиционирования бейджа */
+}
+
+.service-detailed-card.featured::before {
+    content: 'Doporučeno';
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: var(--accent);
+    color: var(--light-text);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(255, 122, 138, 0.5);
 }
 
 .service-detailed-card .btn {
     width: 100%;
+    margin-top: auto; /* Кнопка прижата к низу */
 }
 
+/* --- Микро-контент --- */
+.micro-content {
+    background: rgba(26, 31, 58, 0.6); /* Темный фон */
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary);
+    margin: 1rem 0;
+    border: 1px solid var(--border-color);
+    transition: background 0.3s ease; /* Плавность */
+}
 
-/* Sekce pro řešení na míru */
-#custom-solutions {
+.service-detailed-card:hover .micro-content {
+    background: rgba(26, 31, 58, 0.8); /* Светлее при наведении */
+}
+
+.micro-content h5 {
+    color: var(--light-text);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    background: var(--primary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.micro-content p {
+    color: var(--mid-text);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+/* --- /Микро-контент --- */
+
+
+/* === Секция "Máte specifický nápad?" === */
+#custom-solutions.content-section {
     background-color: var(--dark-space);
 }
 
 .custom-solution-box {
     background: var(--mid-space);
     border: 1px solid var(--border-color);
-    border-radius: 15px;
+    border-radius: 20px; /* Более закруглённые */
     padding: 3rem;
     text-align: center;
+    position: relative; /* Для слоёв */
+    z-index: 1;
+    /* Анимация появления */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.custom-solution-box.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .custom-solution-box i {
     font-size: 3rem;
-    color: var(--orange);
+    color: var(--accent); /* Используем акцентный цвет */
     margin-bottom: 1.5rem;
+    /* --- Анимация иконки --- */
+    animation: pulse 2s infinite;
 }
 
-.custom-solution-box h2 {
-    font-size: 2rem;
-    color: var(--light-text);
-    margin-bottom: 1rem;
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
-.custom-solution-box p {
+.animated-section-title {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: titleGlow 3s infinite alternate; /* Та же анимация заголовка */
+}
+
+.custom-solution-text {
     color: var(--mid-text);
     max-width: 600px;
     margin: 0 auto 2rem;
@@ -127,20 +328,37 @@
     font-weight: 600;
     color: var(--light-text);
     background: transparent;
-    border: 1px solid var(--mid-text);
+    border: 1px solid var(--border-color); /* Цвет границы */
     transition: all var(--transition-speed) ease;
     display: inline-block;
     text-align: center;
     font-size: 0.9rem;
 }
 .btn-secondary:hover {
-    background: var(--purple);
-    border-color: var(--purple);
+    background: var(--secondary); /* Цвет фона */
+    border-color: var(--secondary); /* Цвет границы */
     color: var(--light-text);
+    transform: translateY(-2px); /* Лёгкий подъём */
 }
 
+/* --- Адаптивность --- */
 @media(max-width: 768px) {
+    .page-title { font-size: 2.5rem; }
+    .approach-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .approach-icon {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
     .service-detailed-card.featured {
-        transform: scale(1); /* Vypneme zvětšení na mobilu */
+        transform: scale(1); /* Возвращаем к нормальному размеру */
+        margin-top: 2rem; /* Отступ сверху */
+    }
+    .service-detailed-card.featured::before {
+        top: -10px; /* Скорректируем позицию бейджа */
+        right: 50%;
+        transform: translateX(50%);
     }
 }

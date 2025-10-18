@@ -1,5 +1,6 @@
-window.addEventListener('load', () => {
-    // Инициализируем Isotope для сетки проектов
+document.addEventListener('DOMContentLoaded', function() {
+
+    // Инициализируем Isotope для сетки проектов (оригинальный код)
     const grid = document.querySelector('.portfolio-grid');
     if (grid) {
         const iso = new Isotope(grid, {
@@ -27,4 +28,28 @@ window.addEventListener('load', () => {
             });
         }
     }
+
+    // --- НОВЫЙ КОД: Анимация появления карточек при скролле ---
+    const portfolioCards = document.querySelectorAll('.portfolio-card.animated-card');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+
+    const cardObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Прекращаем наблюдение за этой карточкой
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    portfolioCards.forEach(card => {
+        cardObserver.observe(card);
+    });
+    // --- /НОВЫЙ КОД ---
 });

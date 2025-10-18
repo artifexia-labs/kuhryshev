@@ -6,7 +6,7 @@
 /* === КОНЕЦ ИСПРАВЛЕНИЯ === */
 
 
-/* === Стили для страниц Case Study === */
+/* === Стили для страниц Case Study (улучшенные) === */
 
 #case-study-hero {
     padding-top: 160px;
@@ -15,15 +15,37 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative; /* Для слоёв */
+    overflow: hidden; /* Обрезаем выступающие элементы */
+}
+
+/* Добавим градиентный оверлей для глубины */
+#case-study-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--dark-space) 0%, rgba(10, 15, 44, 0.9) 50%, var(--dark-space) 100%);
+    z-index: 1;
+}
+
+#case-study-hero > .container {
+    position: relative; /* Поверх фона */
+    z-index: 2;
 }
 
 .case-study-title {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    background: linear-gradient(90deg, var(--purple), var(--orange));
+    /* Используем новую цветовую схему */
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    /* Добавим лёгкое свечение */
+    text-shadow: 0 0 10px var(--glow-color);
 }
 
 .case-study-subtitle {
@@ -46,8 +68,20 @@
     color: var(--light-text);
     margin-top: 3rem;
     margin-bottom: 1.5rem;
-    border-left: 4px solid var(--purple);
-    padding-left: 1rem;
+    /* Улучшим визуальный стиль заголовка */
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.case-study-content h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary)); /* Градиентная линия */
+    border-radius: 2px;
 }
 
 .case-study-content p, .case-study-content li {
@@ -55,6 +89,8 @@
     line-height: 1.9;
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
+    /* Улучшим читаемость */
+    max-width: 800px;
 }
 
 .project-overview {
@@ -63,80 +99,139 @@
     gap: 1.5rem;
     background: var(--mid-space);
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 15px; /* Более закруглённые углы */
     margin-bottom: 2rem;
     border: 1px solid var(--border-color);
+    /* Добавим тень */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.overview-item h4 { color: var(--light-text); font-size: 1rem; margin-bottom: 0.5rem; font-weight: 600; }
-.overview-item p { margin: 0; font-size: 1rem; }
-.live-link { color: var(--orange); text-decoration: none; font-weight: 600; }
-.live-link:hover { text-decoration: underline; }
+.overview-item h4 { 
+    color: var(--light-text); 
+    font-size: 1rem; 
+    margin-bottom: 0.5rem; 
+    font-weight: 600; 
+    /* Улучшим стиль заголовка */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+}
+.overview-item p { 
+    margin: 0; 
+    font-size: 1.1rem; /* Чуть увеличим размер */
+    font-weight: 500; /* Сделаем жирнее */
+    color: var(--light-text);
+}
+.live-link { 
+    color: var(--accent); /* Используем акцентный цвет */
+    text-decoration: none; 
+    font-weight: 600; 
+    transition: color 0.3s ease; /* Плавность */
+}
+.live-link:hover { 
+    color: var(--secondary); /* Цвет при наведении */
+    text-decoration: underline; 
+}
 
-/* === НОВЫЕ СТИЛИ: Блок с фишками решения === */
+/* === УЛУЧШЕННЫЕ СТИЛИ: Блок с фишками решения === */
 .solution-highlights {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    gap: 2rem; /* Увеличим отступ */
     margin: 3rem 0;
 }
 .highlight-item {
     background: var(--mid-space);
-    padding: 1.5rem;
-    border-radius: 10px;
+    padding: 2rem 1.5rem; /* Увеличим внутренние отступы */
+    border-radius: 15px; /* Более закруглённые */
     border: 1px solid var(--border-color);
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавность при hover */
+    /* Добавим тень */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.highlight-item:hover {
+    transform: translateY(-5px); /* Лёгкий подъём */
+    box-shadow: 0 10px 25px rgba(109, 90, 196, 0.2); /* Изменённая тень */
+    border-color: var(--secondary); /* Цвет границы при наведении */
 }
 .highlight-item i {
-    font-size: 2rem;
-    color: var(--purple);
+    font-size: 2.5rem; /* Увеличим иконки */
+    color: var(--secondary); /* Используем новый цвет */
     margin-bottom: 1rem;
+    /* Добавим фон для иконки */
+    background: rgba(109, 90, 196, 0.1);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 1rem; /* Центрируем */
 }
 .highlight-item h4 {
     color: var(--light-text);
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem; /* Увеличим заголовок */
+    margin-bottom: 1rem; /* Увеличим отступ */
 }
 .highlight-item p {
-    font-size: 0.9rem;
+    font-size: 1rem; /* Увеличим текст */
     line-height: 1.7;
     margin-bottom: 0;
+    color: var(--mid-text);
 }
 
 
-/* === НОВЫЕ СТИЛИ: Блок сравнения "До/После" === */
+/* === УЛУЧШЕННЫЕ СТИЛИ: Блок сравнения "До/После" === */
 .comparison-section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 2.5rem; /* Увеличим отступ */
     align-items: flex-start;
     margin: 3rem 0;
-    padding: 2rem;
-    border-radius: 15px;
+    padding: 2.5rem; /* Увеличим внутренние отступы */
+    border-radius: 20px; /* Более закруглённые */
     background: var(--dark-space);
+    /* Добавим тень */
+    box-shadow: inset 0 0 0 1px var(--border-color);
 }
 .comparison-column {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    align-items: center; /* Центрируем содержимое колонки */
 }
 .comparison-column h3 {
     text-align: center;
     color: var(--light-text);
-    font-size: 1.2rem;
+    font-size: 1.3rem; /* Увеличим заголовок */
     margin-bottom: 0;
+    /* Добавим визуальный акцент */
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--primary);
+    width: 100%;
 }
 .comparison-column img {
     width: 100%;
-    border-radius: 8px;
+    border-radius: 10px; /* Более закруглённые */
     border: 2px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавность */
+    max-height: 300px; /* Ограничиваем высоту */
+    object-fit: cover; /* Обрезаем изображение */
+}
+.comparison-column img:hover {
+    transform: scale(1.02); /* Лёгкое увеличение при наведении */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 .comparison-column.old-version img {
-    border-color: var(--orange);
+    border-color: var(--accent); /* Используем акцентный цвет */
+}
+.comparison-column.new-version img {
+    border-color: var(--secondary); /* Используем новый цвет */
 }
 .comparison-column.new-version {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex; /* Используем flex вместо grid для лучшей центровки */
+    flex-direction: column;
     gap: 1.5rem;
 }
 
@@ -144,25 +239,82 @@
 /* Боковая панель (правая часть) */
 .case-study-sidebar {
     position: sticky;
-    top: 120px;
+    top: 120px; /* Позиционирование */
     background: var(--mid-space);
-    padding: 2rem;
-    border-radius: 10px;
+    padding: 2.5rem 2rem; /* Увеличим внутренние отступы */
+    border-radius: 15px; /* Более закруглённые */
     border: 1px solid var(--border-color);
+    /* Добавим тень */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.case-study-sidebar h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--light-text); }
-.tech-tags span { display: inline-block; background-color: rgba(142, 45, 226, 0.2); color: var(--purple); padding: 0.4rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: 500; margin-right: 0.5rem; margin-bottom: 0.5rem; }
-.case-study-sidebar .btn { width: 100%; margin-top: 2rem; text-align: center; }
+.case-study-sidebar h3 { 
+    font-size: 1.6rem; /* Увеличим заголовок */
+    margin-bottom: 1.5rem; 
+    color: var(--light-text);
+    /* Добавим визуальный акцент */
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 0.5rem;
+}
+.tech-tags span { 
+    display: inline-block; 
+    /* Используем новую цветовую схему для тегов */
+    background-color: rgba(109, 90, 196, 0.15); 
+    color: var(--secondary); 
+    padding: 0.5rem 0.9rem; /* Увеличим внутренние отступы */
+    border-radius: 8px; /* Более закруглённые */
+    font-size: 0.9rem; /* Увеличим размер текста */
+    font-weight: 500; 
+    margin-right: 0.6rem; /* Увеличим отступ */
+    margin-bottom: 0.6rem; 
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавность */
+}
+.tech-tags span:hover {
+    background-color: rgba(109, 90, 196, 0.3); /* Светлее фон при наведении */
+    color: var(--light-text);
+}
+.case-study-sidebar .btn { 
+    width: 100%; 
+    margin-top: 2.5rem; /* Увеличим отступ */
+    text-align: center; 
+    /* Улучшим кнопку */
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+    border: none;
+    padding: 1rem 2rem; /* Увеличим внутренние отступы */
+    font-size: 1.1rem; /* Увеличим размер текста */
+    transition: all 0.3s ease;
+}
+.case-study-sidebar .btn:hover {
+    background: linear-gradient(90deg, var(--accent), var(--secondary));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px var(--glow-color);
+}
 
 /* Адаптация */
 @media (max-width: 992px) {
-    .case-study-container { grid-template-columns: 1fr; }
-    .case-study-sidebar { position: static; margin-top: 3rem; }
+    .case-study-container { 
+        grid-template-columns: 1fr; 
+        gap: 2.5rem; /* Уменьшим отступ на планшете */
+    }
+    .case-study-sidebar { 
+        position: static; 
+        margin-top: 3rem; 
+        order: -1; /* Переместим боковую панель выше контента на мобильных */
+    }
 }
 
 @media (max-width: 768px) {
-    .case-study-title { font-size: 2.5rem; }
-    .case-study-content h2 { font-size: 2rem; }
-    .comparison-section { grid-template-columns: 1fr; }
+    .case-study-title { 
+        font-size: 2.5rem; 
+    }
+    .case-study-content h2 { 
+        font-size: 2rem; 
+    }
+    .comparison-section { 
+        grid-template-columns: 1fr; 
+        padding: 1.5rem; /* Уменьшим отступы на мобильных */
+    }
+    .solution-highlights {
+        grid-template-columns: 1fr; /* На мобильных одна колонка */
+    }
 }

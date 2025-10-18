@@ -6,7 +6,7 @@
     transform: translateY(0);
 }
 
-/* === Базовые стили для страниц Case Study === */
+/* === УЛУЧШЕННЫЕ базовые стили для страниц Case Study (адаптировано из обновлённого case-study.css) === */
 
 #case-study-hero {
     padding-top: 160px;
@@ -15,15 +15,37 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    position: relative; /* Для слоёв */
+    overflow: hidden; /* Обрезаем выступающие элементы */
+}
+
+/* Добавим градиентный оверлей для глубины */
+#case-study-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--dark-space) 0%, rgba(10, 15, 44, 0.9) 50%, var(--dark-space) 100%);
+    z-index: 1;
+}
+
+#case-study-hero > .container {
+    position: relative; /* Поверх фона */
+    z-index: 2;
 }
 
 .case-study-title {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    background: linear-gradient(90deg, var(--purple), var(--orange));
+    /* Используем новую цветовую схему */
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    /* Добавим лёгкое свечение */
+    text-shadow: 0 0 10px var(--glow-color);
 }
 
 .case-study-subtitle {
@@ -45,8 +67,20 @@
     color: var(--light-text);
     margin-top: 3rem;
     margin-bottom: 1.5rem;
-    border-left: 4px solid var(--purple);
-    padding-left: 1rem;
+    /* Улучшим визуальный стиль заголовка */
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.case-study-content h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary)); /* Градиентная линия */
+    border-radius: 2px;
 }
 
 .case-study-content p, .case-study-content li {
@@ -54,41 +88,239 @@
     line-height: 1.9;
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
+    /* Улучшим читаемость */
+    max-width: 800px;
 }
 
-.case-study-content ul { list-style: none; padding-left: 1rem; }
-.case-study-content li { position: relative; padding-left: 25px; }
-.case-study-content li::before { content: '✓'; color: var(--purple); position: absolute; left: 0; font-weight: 600; }
+/* Стили для списка */
+.case-study-content ul { 
+    list-style: none; 
+    padding-left: 1.5rem; 
+    margin-bottom: 1.5rem;
+}
+.case-study-content li { 
+    position: relative; 
+    padding-left: 25px; 
+    margin-bottom: 0.75rem; /* Отступ между элементами списка */
+}
+.case-study-content li::before { 
+    content: '✓'; 
+    color: var(--secondary); /* Используем новый цвет */
+    position: absolute; 
+    left: 0; 
+    font-weight: 600; 
+    top: 0.2rem; /* Выровняем по верхнему краю текста */
+}
 
-.project-overview { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; background: var(--mid-space); padding: 2rem; border-radius: 10px; margin-bottom: 2rem; border: 1px solid var(--border-color); }
-.overview-item h4 { color: var(--light-text); font-size: 1rem; margin-bottom: 0.5rem; font-weight: 600; }
-.overview-item p { margin: 0; font-size: 1rem; }
-.live-link { color: var(--orange); text-decoration: none; font-weight: 600; }
-.live-link:hover { text-decoration: underline; }
+.project-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    background: var(--mid-space);
+    padding: 2rem;
+    border-radius: 15px; /* Более закруглённые углы */
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+    /* Добавим тень */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 
-.solution-highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
-.highlight-item { background: var(--mid-space); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--border-color); text-align: center; }
-.highlight-item i { font-size: 2rem; color: var(--purple); margin-bottom: 1rem; }
-.highlight-item h4 { color: var(--light-text); font-size: 1.2rem; margin-bottom: 0.5rem; }
-.highlight-item p { font-size: 0.9rem; line-height: 1.7; margin-bottom: 0; }
+.overview-item h4 { 
+    color: var(--accent); /* Используем акцентный цвет */
+    font-size: 1rem; 
+    margin-bottom: 0.5rem; 
+    font-weight: 600; 
+    /* Улучшим стиль заголовка */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.overview-item p { 
+    margin: 0; 
+    font-size: 1.1rem; /* Чуть увеличим размер */
+    font-weight: 500; /* Сделаем жирнее */
+    color: var(--light-text);
+}
+.live-link { 
+    color: var(--accent); /* Используем акцентный цвет */
+    text-decoration: none; 
+    font-weight: 600; 
+    transition: color 0.3s ease; /* Плавность */
+}
+.live-link:hover { 
+    color: var(--secondary); /* Цвет при наведении */
+    text-decoration: underline; 
+}
 
-.device-showcase { display: grid; grid-template-columns: 2.5fr 1fr; gap: 2rem; align-items: center; margin: 3rem 0; }
-.showcase-item { border: 1px solid var(--border-color); border-radius: 10px; padding: 1rem; background: var(--mid-space); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-.showcase-item img { width: 100%; display: block; border-radius: 5px; }
-.showcase-mobile { max-width: 300px; margin: 0 auto; }
+/* === УЛУЧШЕННЫЕ СТИЛИ: Блок с фишками решения === */
+.solution-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem; /* Увеличим отступ */
+    margin: 3rem 0;
+}
+.highlight-item {
+    background: var(--mid-space);
+    padding: 2rem 1.5rem; /* Увеличим внутренние отступы */
+    border-radius: 15px; /* Более закруглённые */
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавность при hover */
+    /* Добавим тень */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.highlight-item:hover {
+    transform: translateY(-5px); /* Лёгкий подъём */
+    box-shadow: 0 10px 25px rgba(109, 90, 196, 0.2); /* Изменённая тень */
+    border-color: var(--secondary); /* Цвет границы при наведении */
+}
+.highlight-item i {
+    font-size: 2.5rem; /* Увеличим иконки */
+    color: var(--secondary); /* Используем новый цвет */
+    margin-bottom: 1rem;
+    /* Добавим фон для иконки */
+    background: rgba(109, 90, 196, 0.1);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 1rem; /* Центрируем */
+}
+.highlight-item h4 {
+    color: var(--light-text);
+    font-size: 1.3rem; /* Увеличим заголовок */
+    margin-bottom: 1rem; /* Увеличим отступ */
+}
+.highlight-item p {
+    font-size: 1rem; /* Увеличим текст */
+    line-height: 1.7;
+    margin-bottom: 0;
+    color: var(--mid-text);
+}
 
-.case-study-sidebar { position: sticky; top: 120px; background: var(--mid-space); padding: 2rem; border-radius: 10px; border: 1px solid var(--border-color); }
-.case-study-sidebar h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--light-text); }
-.tech-tags span { display: inline-block; background-color: rgba(142, 45, 226, 0.2); color: var(--purple); padding: 0.4rem 0.8rem; border-radius: 5px; font-size: 0.85rem; font-weight: 500; margin-right: 0.5rem; margin-bottom: 0.5rem; }
-.case-study-sidebar .btn { width: 100%; margin-top: 2rem; text-align: center; }
+/* === УЛУЧШЕННЫЕ СТИЛИ: Блок демонстрации устройств (адаптировано из auto) === */
+.device-showcase {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr; /* PC-версия занимает больше места */
+    gap: 2.5rem; /* Увеличим отступ */
+    align-items: center;
+    margin: 3rem 0;
+    padding: 2.5rem; /* Добавим внутренние отступы */
+    border-radius: 20px; /* Более закруглённые */
+    background: var(--dark-space);
+    /* Добавим тень */
+    box-shadow: inset 0 0 0 1px var(--border-color);
+}
+.showcase-item {
+    border: 1px solid var(--border-color);
+    border-radius: 15px; /* Более закруглённые */
+    padding: 1.5rem; /* Увеличим внутренние отступы */
+    background: var(--mid-space);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Уменьшим тень */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавность */
+}
+.showcase-item:hover {
+    transform: translateY(-3px); /* Лёгкий подъём при наведении */
+    box-shadow: 0 10px 25px rgba(109, 90, 196, 0.2); /* Изменённая тень */
+}
+.showcase-item img {
+    width: 100%;
+    display: block;
+    border-radius: 10px; /* Более закруглённые */
+    transition: transform 0.3s ease; /* Плавность зума */
+}
+.showcase-item:hover img {
+    transform: scale(1.02); /* Лёгкое увеличение изображения */
+}
+.showcase-mobile {
+    max-width: 300px; /* Ограничиваем ширину мобильного скрина */
+    margin: 0 auto; /* Центрируем */
+}
 
+/* === УЛУЧШЕННЫЕ СТИЛИ: Боковая панель === */
+.case-study-sidebar {
+    position: sticky;
+    top: 120px; /* Позиционирование */
+    background: var(--mid-space);
+    padding: 2.5rem 2rem; /* Увеличим внутренние отступы */
+    border-radius: 15px; /* Более закруглённые */
+    border: 1px solid var(--border-color);
+    /* Добавим тень */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.case-study-sidebar h3 { 
+    font-size: 1.6rem; /* Увеличим заголовок */
+    margin-bottom: 1.5rem; 
+    color: var(--light-text);
+    /* Добавим визуальный акцент */
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 0.5rem;
+}
+.tech-tags span { 
+    display: inline-block; 
+    /* Используем новую цветовую схему для тегов */
+    background-color: rgba(109, 90, 196, 0.15); 
+    color: var(--secondary); 
+    padding: 0.5rem 0.9rem; /* Увеличим внутренние отступы */
+    border-radius: 8px; /* Более закруглённые */
+    font-size: 0.9rem; /* Увеличим размер текста */
+    font-weight: 500; 
+    margin-right: 0.6rem; /* Увеличим отступ */
+    margin-bottom: 0.6rem; 
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавность */
+}
+.tech-tags span:hover {
+    background-color: rgba(109, 90, 196, 0.3); /* Светлее фон при наведении */
+    color: var(--light-text);
+}
+.case-study-sidebar .btn { 
+    width: 100%; 
+    margin-top: 2.5rem; /* Увеличим отступ */
+    text-align: center; 
+    /* Улучшим кнопку */
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+    border: none;
+    padding: 1rem 2rem; /* Увеличим внутренние отступы */
+    font-size: 1.1rem; /* Увеличим размер текста */
+    transition: all 0.3s ease;
+}
+.case-study-sidebar .btn:hover {
+    background: linear-gradient(90deg, var(--accent), var(--secondary));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px var(--glow-color);
+}
+
+
+/* === Адаптация === */
 @media (max-width: 992px) {
-    .case-study-container { grid-template-columns: 1fr; }
-    .case-study-sidebar { position: static; margin-top: 3rem; }
+    .case-study-container { 
+        grid-template-columns: 1fr; 
+        gap: 2.5rem; /* Уменьшим отступ на планшете */
+    }
+    .case-study-sidebar { 
+        position: static; 
+        margin-top: 3rem; 
+        order: -1; /* Переместим боковую панель выше контента на мобильных */
+    }
+    .device-showcase { 
+        grid-template-columns: 1fr; /* На планшетах и мобильных всё в одну колонку */
+        padding: 1.5rem; /* Уменьшим внутренние отступы */
+    }
+    .showcase-pc, .showcase-mobile { 
+        max-width: 100%; /* Уберем ограничение ширины на маленьких экранах */
+    }
 }
 
 @media (max-width: 768px) {
-    .case-study-title { font-size: 2.5rem; }
-    .case-study-content h2 { font-size: 2rem; }
-    .device-showcase { grid-template-columns: 1fr; }
+    .case-study-title { 
+        font-size: 2.5rem; 
+    }
+    .case-study-content h2 { 
+        font-size: 2rem; 
+    }
+    .solution-highlights {
+        grid-template-columns: 1fr; /* На мобильных одна колонка */
+    }
 }

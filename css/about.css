@@ -1,4 +1,4 @@
-/* === Стили для страницы about.html === */
+/* === Стили для страницы o-nas.html === */
 
 /* Блок 1: Hero Section */
 #about-hero {
@@ -53,80 +53,230 @@
     line-height: 1.8;
 }
 
-/* --- ИЗМЕНЕНИЯ ЗДЕСЬ --- */
-/* Блок 3: Команда */
-.team-grid {
-    display: grid;
-    /* 1. Заставляем сетку всегда иметь 3 колонки */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 2rem; /* Уменьшил отступ для лучшего вида */
-    /* 2. Увеличиваем максимальную ширину контейнера, чтобы все влезло */
-    max-width: 1100px; 
-    margin: 0 auto;
+/* --- УЛУЧШЕННЫЕ СТИЛИ ДЛЯ ОДИНОЧНОЙ КАРТОЧКИ КОМАНДЫ (с анимациями и глубиной) --- */
+
+/* Стили для плавного появления секции при скролле (если не используются в общем styles.css) */
+.content-section {
+    /* Уже есть в styles.css, но можно уточнить для этой секции */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.team-card {
-    background: var(--mid-space);
-    border-radius: 15px;
-    padding: 2.5rem 2rem;
-    text-align: center;
+.content-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.team-single-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.team-card-single {
+    display: flex;
+    flex-direction: column;
+    max-width: 850px; /* Чуть увеличили ширину */
+    width: 100%;
+    background: linear-gradient(145deg, var(--mid-space), var(--dark-space)); /* Градиентный фон */
+    border-radius: 20px; /* Более закруглённые углы */
+    padding: 2.5rem;
     border: 1px solid var(--border-color);
-    transition: all 0.4s ease;
+    /* Добавляем тень для глубины */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Плавный переход с easing функцией */
+    position: relative; /* Для псевдоэлементов */
+    overflow: hidden; /* Обрезаем всё, что выходит за границы */
 }
 
-.team-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-color: var(--purple);
+/* Псевдоэлемент для "светодиодного" эффекта при наведении */
+.team-card-single::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(109, 90, 196, 0.2), transparent); /* Цвет из твоей схемы */
+    transition: left 0.7s;
+    z-index: 1;
 }
 
-.team-photo, .team-photo-placeholder {
-    width: 150px;
-    height: 150px;
+.team-card-single:hover::before {
+    left: 100%;
+}
+
+.team-card-single:hover {
+    transform: translateY(-10px) scale(1.01); /* Лёгкое увеличение и подъём при наведении */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(109, 90, 196, 0.3); /* Изменённая тень */
+    border-color: var(--secondary); /* Цвет границы при наведении */
+}
+
+/* Структура внутри карточки */
+.team-card-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 2.5rem; /* Увеличили отступ */
+    margin-bottom: 2.5rem;
+    position: relative; /* Для слоёв */
+    z-index: 2; /* Поверх псевдоэлемента */
+}
+
+.team-photo {
+    flex: 0 0 auto;
+    width: 160px; /* Чуть увеличили размер фото */
+    height: 160px;
     border-radius: 50%;
-    margin: 0 auto 1.5rem;
     overflow: hidden;
-    border: 4px solid var(--purple);
-    box-shadow: 0 0 20px var(--glow-color);
+    border: 4px solid var(--primary);
+    box-shadow: 0 0 25px var(--glow-color), 0 0 0 8px rgba(74, 111, 165, 0.2); /* Двойная тень */
+    transition: all 0.4s ease;
+    filter: grayscale(100%); /* Начальное состояние - черно-белое */
 }
 
 .team-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.4s ease; /* Для анимации при наведении */
 }
 
-.team-photo-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--dark-space);
+.team-card-single:hover .team-photo {
+    filter: grayscale(0%); /* Цветное фото при наведении */
+    transform: scale(1.05); /* Лёгкое увеличение фото */
+    box-shadow: 0 0 35px var(--glow-color), 0 0 0 10px rgba(74, 111, 165, 0.3); /* Изменённая тень */
 }
 
-.team-photo-placeholder span {
-    font-size: 4rem;
-    font-weight: 600;
-    color: var(--mid-text);
+.team-card-single:hover .team-photo img {
+    transform: scale(1.1); /* Увеличение изображения внутри */
 }
 
-.team-card h3 {
-    font-size: 1.6rem;
+.team-info {
+    flex: 1 1 auto;
+    min-width: 200px;
+}
+
+.team-info h3 {
+    font-size: 2rem; /* Увеличили размер заголовка */
     color: var(--light-text);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(90deg, var(--primary), var(--secondary)); /* Градиентный текст */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+}
+
+/* Добавим декоративную линию под заголовок */
+.team-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px; /* Длина линии */
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: width 0.4s ease;
+}
+
+.team-card-single:hover .team-info h3::after {
+    width: 70px; /* Увеличиваем длину линии при наведении */
 }
 
 .team-role {
-    color: var(--orange);
+    color: var(--accent);
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem; /* Увеличили отступ */
+    font-size: 1.1rem; /* Увеличили размер */
 }
 
 .team-bio {
     color: var(--mid-text);
-    line-height: 1.7;
-    font-size: 0.9rem;
+    line-height: 1.8; /* Увеличили интерлиньяж */
+    font-size: 1.05rem; /* Увеличили размер */
+    margin: 0;
 }
 
+/* Блок подсветок */
+.team-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem; /* Увеличили отступ */
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    position: relative;
+    z-index: 2; /* Поверх псевдоэлемента */
+}
+
+.highlight-item {
+    padding: 1.25rem;
+    border-radius: 10px;
+    background: rgba(26, 31, 58, 0.4); /* Полупрозрачный фон для элемента */
+    transition: all 0.3s ease;
+    border-left: 3px solid var(--primary); /* Акцентная линия */
+}
+
+.highlight-item:hover {
+    background: rgba(26, 31, 58, 0.6); /* Более тёмный фон при наведении */
+    transform: translateX(5px); /* Лёгкий сдвиг в сторону */
+    border-left-color: var(--secondary); /* Изменение цвета линии */
+}
+
+.highlight-item h4 {
+    font-size: 1.25rem; /* Увеличили размер */
+    color: var(--light-text);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.highlight-item h4 i {
+    margin-right: 0.75rem;
+    color: var(--secondary);
+    font-size: 1.4rem; /* Увеличили размер иконки */
+    transition: transform 0.3s ease; /* Анимация иконки */
+}
+
+.highlight-item:hover h4 i {
+    transform: scale(1.2) rotate(10deg); /* Поворот и увеличение иконки при наведении */
+}
+
+.highlight-item p {
+    color: var(--mid-text);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* --- /УЛУЧШЕННЫЕ СТИЛИ --- */
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .team-card-single {
+        padding: 2rem; /* Уменьшаем отступы на мобильных */
+        max-width: 95%; /* Уменьшаем ширину */
+    }
+
+    .team-card-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem; /* Уменьшаем отступ */
+    }
+
+    .team-photo {
+        width: 140px; /* Уменьшаем размер фото */
+        height: 140px;
+    }
+
+    .team-info h3 {
+        font-size: 1.8rem; /* Уменьшаем заголовок */
+    }
+
+    .team-highlights {
+        gap: 1.25rem; /* Уменьшаем отступ */
+    }
+}
 
 /* Блок 4: Ценности */
 .values-grid {

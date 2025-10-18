@@ -1,28 +1,67 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    const timelineItems = document.querySelectorAll('.timeline-item');
+    const stepHeaders = document.querySelectorAll('.step-header');
+    const stepContents = document.querySelectorAll('.step-content');
+    const terminalOutput = document.getElementById('terminal-output');
+    const terminalCurrentStep = document.getElementById('terminal-current-step');
 
-    // Настройки для "наблюдателя"
+    // Анимация появления секций при скролле (если не используется в общем styles.css)
     const observerOptions = {
-        root: null, // отслеживаем пересечение с viewport
+        root: null,
         rootMargin: '0px',
-        threshold: 0.2 // элемент считается видимым, если видно хотя бы 20%
+        threshold: 0.1
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            // Если элемент появился в области видимости
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Прекращаем наблюдение за этим элементом, чтобы анимация не повторялась
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Запускаем наблюдение за каждой карточкой
-    timelineItems.forEach(item => {
-        observer.observe(item);
+    document.querySelectorAll('.step-expanded').forEach(step => {
+        sectionObserver.observe(step);
     });
+
+    // Функция для переключения аккордеона
+    function toggleAccordion(header) {
+        const step = header.parentElement;
+        step.classList.toggle('active');
+
+        // Обновляем "терминал" при открытии шага
+        const stepTitle = header.querySelector('h3').textContent;
+        const stepNumber = header.querySelector('.step-number').textContent;
+        terminalCurrentStep.textContent = `> Spuštění fáze ${stepNumber}: ${stepTitle}...`;
+    }
+
+    // Добавляем обработчики кликов на заголовки шагов
+    stepHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            toggleAccordion(this);
+        });
+    });
+
+    // Активируем первый шаг по умолчанию
+    if (stepHeaders.length > 0) {
+        stepHeaders[0].parentElement.classList.add('active');
+        // terminalCurrentStep.textContent = `> Spuštění fáze 1: ${stepHeaders[0].querySelector('h3').textContent}...`;
+    }
+
+    // Анимация "печати" для терминала (опционально, если хочешь больше "жизни")
+    // const initialText = terminalOutput.innerHTML;
+    // terminalOutput.innerHTML = '';
+    // let i = 0;
+    // const speed = 50; // ms per character
+    // const timer = setInterval(() => {
+    //     if (i < initialText.length) {
+    //         terminalOutput.innerHTML += initialText.charAt(i);
+    //         i++;
+    //         terminalOutput.scrollTop = terminalOutput.scrollHeight; // Прокрутка вниз
+    //     } else {
+    //         clearInterval(timer);
+    //     }
+    // }, speed);
 
 });

@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Náš Proces | KUHRYSHEV</title>
-    <meta name="description" content="Zjistěte, jak probíhá spolupráce s webovým studiem KUHRYSHEV. Od první konzultace až po spuštění a následnou podporu.">
+    <title>Můj Přístup | KUHRYSHEV</title>
+    <meta name="description" content="Zjistěte, jakým způsobem pracuji. Jakým přístupem vytvářím weby, které fungují a zároveň odpovídají vašim potřebám a očekáváním.">
     <link rel="stylesheet" href="css/cookie-banner.css">
     
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/proces.css"> 
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com  ">
+    <link rel="preconnect" href="https://fonts.gstatic.com  " crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="  https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css  ">
 </head>
 <body>
 
@@ -26,7 +26,7 @@
                 <li class="nav-item"><a href="sluzby.html" class="nav-link">Služby</a></li>
                 <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
                 <li class="nav-item"><a href="o-nas.html" class="nav-link">O nás</a></li>
-                <li class="nav-item"><a href="proces.html" class="nav-link active">Proces</a></li>
+                <li class="nav-item"><a href="proces.html" class="nav-link active">Přístup</a></li>
                 <li class="nav-item"><a href="kontakt.html" class="btn">Kontakt</a></li>
             </ul>
         </div>
@@ -34,60 +34,179 @@
 </header>
 
     <main>
+        <!-- Анимированный фон для "потока" -->
+        <div class="workflow-stream-bg"></div>
+
         <section id="page-hero">
             <div class="container">
-                <h1 class="page-title">Náš Osvědčený Proces</h1>
-                <p class="page-subtitle">Věříme v transparentnost a efektivitu. Zde je náš krok-za-krokem průvodce, jak přeměníme váš nápad v úspěšný web.</p>
+                <h1 class="page-title">Můj přístup k vašemu webu</h1>
+                <p class="page-subtitle">Není to jen proces. Je to můj osobní přístup jako studenta IT, který se plně věnuje vašemu projektu. Zde je, co vás čeká.</p>
+            </div>
+        </section>
+
+        <section id="process-overview" class="content-section">
+            <div class="container">
+                <h2 class="section-title">Mé základní principy</h2>
+                <div class="principles-grid">
+                    <div class="principle-card floating-element">
+                        <div class="principle-icon"><i class="fas fa-user"></i></div>
+                        <h3>Osobní záruka</h3>
+                        <p>Váš projekt je můj projekt. Jako student IT jsem plně angažován a osobně se starám o každý detail. Žádné předávání mezi týmy, jen přímý kontakt se mnou.</p>
+                    </div>
+                    <div class="principle-card floating-element">
+                        <div class="principle-icon"><i class="fas fa-bolt"></i></div>
+                        <h3>Rychlost & Priorita</h3>
+                        <p>Student má čas se věnovat projektu intenzivně. Rychle analyzuji, navrhuji a implementuji. Jednoduchý web může být hotový během týdne.</p>
+                    </div>
+                    <div class="principle-card floating-element">
+                        <div class="principle-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Moderní & Technicky přesné</h3>
+                        <p>Využívám nejnovější technologie a osvědčené postupy. Cílem je web, který je rychlý, bezpečný, responzivní a připravený pro budoucnost.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="process-detailed" class="content-section">
             <div class="container">
-                <div class="process-timeline">
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-icon"><i class="fas fa-comments"></i></div>
-                        <div class="timeline-content">
-                            <span class="step-number">Krok 1</span>
-                            <h3>Konzultace a Strategie</h3>
-                            <p>Vše začíná rozhovorem. Chceme pochopit vaše podnikání, cíle a cílovou skupinu. Na základě toho navrhneme strategii a definujeme klíčové funkce webu. Výstupem je jasný plán a cenová nabídka.</p>
+                <h2 class="section-title">Jak to s vámi probíhá</h2>
+                <!-- "Живой" терминал -->
+                <div class="terminal-emulator">
+                    <div class="terminal-header">
+                        <span class="terminal-dot terminal-red"></span>
+                        <span class="terminal-dot terminal-yellow"></span>
+                        <span class="terminal-dot terminal-green"></span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-output" id="terminal-output">
+                            <div class="terminal-line">> Inicializace projektu pro: [Klient]</div>
+                            <div class="terminal-line" id="terminal-current-step">> Spuštění fáze 1: Analýza a Strategie...</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Живой терминал -->
+
+                <div class="process-steps-expanded">
+                    <div class="step-expanded">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <h3>Analýza a Strategie</h3>
+                        </div>
+                        <div class="step-content">
+                            <p><strong>Jak to dělám:</strong> V osobní konzultaci (osobně, online) seznámím se s vaší firmou, produktem, cílem webu a cílovou skupinou. Definuji klíčové funkce a vytvořím plán projektu. Tento krok je zásadní pro pochopení vašich potřeb.</p>
+                            <p><strong>Proč je to důležité:</strong> Dobře promyšlený základ šetří čas a peníze později. Zajistím, abychom spolu měli jasnou představu o cíli.</p>
+                            <div class="step-tech-highlight">
+                                <h4>Použité nástroje:</h4>
+                                <ul>
+                                    <li>Notion / Google Docs (plánování)</li>
+                                    <li>Analýza konkurence</li>
+                                </ul>
+                            </div>
+                            <!-- Микро-контент -->
+                            <div class="micro-content">
+                                <h5>Tip:</h5>
+                                <p>Připravte si stručný popis vašeho byznysu a seznam konkurentů. Ušetříme spoustu času.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-icon"><i class="fas fa-pencil-ruler"></i></div>
-                        <div class="timeline-content">
-                            <span class="step-number">Krok 2</span>
-                            <h3>Návrh a Design (UI/UX)</h3>
-                            <p>Vytvoříme wireframy (struktu webu) a následně kompletní grafický návrh. Klademe důraz na uživatelskou přívětivost (UX) a moderní vizuální identitu (UI). Design ladíme, dokud nejste 100% spokojeni.</p>
+                    <div class="step-expanded">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <h3>Design & UX/UI</h3>
+                        </div>
+                        <div class="step-content">
+                            <p><strong>Jak to dělám:</strong> Vytvořím wireframe (rozvržení stránky) a následně vizuální návrh. Kladu důraz na jednoduchost, přehlednost a estetiku. Design ladím s vámi, dokud nebude přesně podle vaší představy.</p>
+                            <p><strong>Proč je to důležité:</strong> První dojem je rozhodující. Dobrý design zvyšuje důvěru a udrží uživatele na webu.</p>
+                            <div class="step-tech-highlight">
+                                <h4>Použité nástroje:</h4>
+                                <ul>
+                                    <li>Figma / Pen & Paper (návrh)</li>
+                                    <li>Responsivní principy</li>
+                                </ul>
+                            </div>
+                            <div class="micro-content">
+                                <h5>Tip:</h5>
+                                <p>Ukážte mi weby, které se vám líbí. Pomůže to rychleji určit styl.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-icon"><i class="fas fa-code"></i></div>
-                        <div class="timeline-content">
-                            <span class="step-number">Krok 3</span>
-                            <h3>Vývoj a Kódování</h3>
-                            <p>Schválený design převedeme do funkčního kódu. Píšeme čistý, rychlý a responzivní kód s využitím moderních technologií. Během této fáze budete mít přístup k testovací verzi, abyste mohli sledovat postup.</p>
+                    <div class="step-expanded">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <h3>Vývoj & Implementace</h3>
+                        </div>
+                        <div class="step-content">
+                            <p><strong>Jak to dělám:</strong> Převádím schválený design do funkčního kódu. Psaní čistého, rychlého a bezpečného HTML, CSS a JavaScriptu. Využívám moderní přístupy pro responzivitu a výkon.</p>
+                            <p><strong>Proč je to důležité:</strong> Dobrý vzhled musí doprovázet výborná funkčnost. Zajistím, že web běží hladce na všech zařízeních.</p>
+                            <div class="step-tech-highlight">
+                                <h4>Použité technologie:</h4>
+                                <ul>
+                                    <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                                    <li>Moderní CSS (Flexbox, Grid)</li>
+                                    <li>Optimalizace obrázků</li>
+                                </ul>
+                            </div>
+                            <div class="micro-content">
+                                <h5>Tip:</h5>
+                                <p>Pracuji transparentně. Můžete požadovat pravidelné aktualizace nebo náhledy.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
-                        <div class="timeline-content">
-                            <span class="step-number">Krok 4</span>
-                            <h3>Testování, Spuštění a Podpora</h3>
-                            <p>Před spuštěním web důkladně otestujeme na různých zařízeních a prohlížečích. Po finálním schválení web nasadíme na vaši doménu. Po spuštění jsme vám k dispozici pro další úpravy a technickou podporu.</p>
+                    <div class="step-expanded">
+                        <div class="step-header">
+                            <div class="step-number">4</div>
+                            <h3>Testování & Spuštění</h3>
+                        </div>
+                        <div class="step-content">
+                            <p><strong>Jak to dělám:</strong> Důkladně testuji web na různých prohlížečích a zařízeních. Ověřuji všechny funkce a ujistím se, že všechno funguje bezchybně. Následuje spuštění na vaší doméně.</p>
+                            <p><strong>Proč je to důležité:</strong> Finální kontrola zaručuje kvalitu a bezproblémový start vašeho webu.</p>
+                            <div class="step-tech-highlight">
+                                <h4>Testování:</h4>
+                                <ul>
+                                    <li>Manuální testy</li>
+                                    <li>Validace HTML/CSS</li>
+                                    <li>Google PageSpeed Insights</li>
+                                </ul>
+                            </div>
+                            <div class="micro-content">
+                                <h5>Tip:</h5>
+                                <p>Před spuštěním si web pečlivě projděte. Malé detaily mohou mít velký dopad.</p>
+                            </div>
                         </div>
                     </div>
 
+                    <div class="step-expanded">
+                        <div class="step-header">
+                            <div class="step-number">5</div>
+                            <h3>Podpora & Údržba</h3>
+                        </div>
+                        <div class="step-content">
+                            <p><strong>Jak to dělám:</strong> Po spuštění zůstávám po ruce. Poskytuji technickou podporu, provedu úpravy a pomohu s údržbou webu. Můžu vás naučit, jak web spravovat sami (pokud je to možné).</p>
+                            <p><strong>Proč je to důležité:</strong> Váš web potřebuje péči. Mám zájem na dlouhodobém partnerství a úspěchu vašeho projektu.</p>
+                            <div class="step-tech-highlight">
+                                <h4>Služby:</h4>
+                                <ul>
+                                    <li>Údržba obsahu</li>
+                                    <li>Opravy chyb</li>
+                                    <li>Technická konzultace</li>
+                                </ul>
+                            </div>
+                            <div class="micro-content">
+                                <h5>Tip:</h5>
+                                <p>Udržujte obsah aktuální. Pravidelná aktualizace pomáhají webu růst.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="contact-promo" class="content-section">
             <div class="container contact-container">
-                <h2 class="section-title">Připraveni začít první krok?</h2>
+                <h2 class="section-title">Připraveni začít?</h2>
                 <p class="contact-subtitle">Pojďme společně probrat váš projekt. První konzultace je zcela zdarma a k ničemu vás nezavazuje.</p>
                 <a href="kontakt.html" class="btn email-btn">Domluvit si konzultaci</a>
             </div>
@@ -101,9 +220,9 @@
                 <a href="index.html" class="footer-logo">KUHRYSHEV</a>
                 <p class="footer-tagline">Tvoříme moderní a funkční weby, které pomáhají růst firmám v Karlovarském kraji.</p>
                 <div class="footer-socials">
-                    <a href="https://t.me/justmaksyym" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
-                    <a href="https://wa.me/420603201843" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://github.com/artifexia-labs/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://t.me/justmaksyym  " target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="https://wa.me/420603201843  " target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://github.com/artifexia-labs/  " target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             <div class="footer-col links">
@@ -112,7 +231,7 @@
                     <li><a href="sluzby.html">Služby</a></li>
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="o-nas.html">O nás</a></li>
-                    <li><a href="proces.html">Proces</a></li>
+                    <li><a href="proces.html">Přístup</a></li>
                 </ul>
             </div>
             <div class="footer-col contact">
@@ -131,7 +250,7 @@
 <div class="cookie-consent-banner" id="cookie-consent-banner">
         <div class="cookie-banner-content">
             <div class="cookie-banner-text">
-                <p>Používáme soubory cookie, abychom vám poskytli co nejlepší zážitek z našich webových stránek. Některé jsou nezbytné, zatímco jiné nám pomáhají analyzovat návštěvnost.</p>
+                <p>Používáme soubory cookie, abychom vám poskytli co nejlepší zážitek z našich webových stránek. Některé jsou nezbytné, zatímco jiné nám pomáhají analyzovat náвštěvnost.</p>
             </div>
             <div class="cookie-banner-actions">
                 <button class="btn-details" id="show-cookie-details">Podrobnosti</button>
@@ -161,7 +280,7 @@
                         <span class="slider"></span>
                     </label>
                 </div>
-                <p>Tyto soubory cookie nám pomáhají analyzovat návštěvnost a chování uživatelů, což nám umožňuje vylepšovat naše služby (např. Google Analytics).</p>
+                <p>Tyto soubory cookie nám pomáhají analyzovat náвštěvnost a chовání uživatelů, což nám umožňuje vylepšovat naše služby (např. Google Analytics).</p>
             </div>
             <div class="cookie-modal-actions">
                 <button class="btn" id="save-cookie-settings">Uložit nastavení</button>
@@ -170,7 +289,6 @@
     </div>
     <script src="js/index.js"></script>
     <script src="js/cookie-consent.js"></script>
-    <script src="js/proces.js"></script>
-
+    <script src="js/proces.js"></script> <!-- Используем обновлённый JS -->
 </body>
 </html>
