@@ -100,18 +100,19 @@
     gap: 3rem; /* Больше отступов */
 }
 
-/* Уникальная карточка товара */
+/* Уникальная карточка товара (компактная версия) */
 .product-card {
-    background: linear-gradient(145deg, var(--mid-space), var(--dark-space)); /* Градиент фона */
-    backdrop-filter: blur(8px); /* Уменьшенное размытие */
+    background: linear-gradient(145deg, var(--mid-space), var(--dark-space));
+    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid var(--border-color);
     border-radius: 15px;
-    overflow: hidden; /* Обрезаем по краям */
+    overflow: hidden;
     transition: all var(--transition-speed) ease;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Начальная тень */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer; /* Указываем, что это кликабельный элемент */
 }
 
 .product-card:hover {
@@ -120,91 +121,31 @@
     border-color: var(--secondary);
 }
 
-/* Контейнер для изображений */
+/* Контейнер для изображения в компактной карточке */
 .product-image-container {
     position: relative;
     width: 100%;
-    /* Отношение сторон 16:9 */
-    padding-bottom: 56.25%; /* (9 / 16) * 100% */
+    /* Отношение сторон 1:1 */
+    padding-bottom: 100%; /* (1 / 1) * 100% */
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    background-color: var(--dark-space);
 }
 
-/* Стили для основного изображения (абсолютное позиционирование для сохранения соотношения сторон) */
-.main-image-wrapper {
+.product-main-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 75%; /* Занимает 75% высоты контейнера */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--dark-space); /* Фон для изображения */
-}
-
-.main-image {
-    width: 95%; /* Уменьшаем ширину */
-    height: 95%; /* Уменьшаем высоту */
-    object-fit: contain; /* Показывает все изображение целиком, сжимая если нужно */
+    height: 100%;
+    object-fit: cover; /* Заполняет контейнер, обрезая при необходимости */
     transition: transform var(--transition-speed) ease;
-    max-width: 100%; /* Не выходит за границы wrapper */
-    max-height: 100%;
-    border-radius: 5px; /* Легкое скругление */
 }
 
-/* Контейнер для миниатюр */
-.image-thumbnails-wrapper {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 25%; /* Занимает 25% высоты контейнера */
-    background-color: rgba(10, 15, 44, 0.5); /* Темный фон для миниатюр */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow-x: auto; /* Прокрутка по горизонтали */
-    gap: 0.5rem;
-    padding: 0.5rem 0; /* Отступы сверху и снизу */
-    scrollbar-width: thin; /* Для Firefox */
-    scrollbar-color: var(--secondary) var(--dark-space); /* Цвет скроллбара */
-}
-
-.image-thumbnails-wrapper::-webkit-scrollbar {
-    height: 6px; /* Для Webkit (Chrome, Safari) */
-}
-
-.image-thumbnails-wrapper::-webkit-scrollbar-track {
-    background: var(--dark-space);
-}
-
-.image-thumbnails-wrapper::-webkit-scrollbar-thumb {
-    background-color: var(--secondary);
-    border-radius: 3px;
-}
-
-.thumbnail {
-    width: 60px;
-    height: 60px;
-    object-fit: cover; /* Заполняет миниатюру, обрезая при необходимости */
-    border-radius: 5px;
-    cursor: pointer;
-    transition: opacity var(--transition-speed) ease, border-color var(--transition-speed) ease, transform var(--transition-speed) ease;
-    border: 2px solid transparent;
-    flex-shrink: 0; /* Не сжимаем миниатюры */
-    opacity: 0.7;
-}
-
-.thumbnail:hover,
-.thumbnail.active {
-    opacity: 1;
-    border-color: var(--secondary);
+.product-main-image:hover {
     transform: scale(1.05);
 }
 
-/* Уникальный стиль для статуса */
+/* Уникальный стиль для статуса и цены в компактной карточке */
 .product-status-badge {
     position: absolute;
     top: 0.8rem;
@@ -213,7 +154,7 @@
     border-radius: 20px;
     font-weight: 600;
     font-size: 0.85rem;
-    z-index: 3; /* Поверх изображения */
+    z-index: 3;
     background-color: var(--accent);
     color: #000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -229,7 +170,6 @@
     color: white;
 }
 
-/* Уникальный стиль для цены */
 .product-price-tag {
     position: absolute;
     bottom: 0.8rem;
@@ -240,50 +180,230 @@
     border-radius: 5px;
     font-weight: 700;
     font-size: 1.1rem;
-    z-index: 3; /* Поверх изображения */
+    z-index: 3;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.product-content {
-    padding: 1.8rem;
+/* Содержимое компактной карточки */
+.product-summary-content {
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    background-color: rgba(26, 31, 58, 0.5); /* Легкий фон для контента */
 }
 
 .product-title {
-    font-size: 1.7rem; /* Крупный заголовок */
+    font-size: 1.3rem;
+    color: var(--light-text);
+    margin-bottom: 0.5rem;
+}
+
+.product-description-summary {
+    color: var(--mid-text);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    font-size: 0.9rem; /* Уменьшаем размер шрифта описания */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Показываем максимум 3 строки */
+    -webkit-box-orient: vertical;
+}
+
+.product-details-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: auto; /* Прижимаем кнопку к низу */
+    padding: 0.6rem 1.2rem; /* Уменьшаем паддинги кнопки */
+    font-size: 0.95rem; /* Уменьшаем размер шрифта кнопки */
+    align-self: center; /* Центрируем кнопку */
+}
+
+/* Стили для модального окна */
+.product-modal-overlay {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 2000; /* Выше других элементов */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.product-modal-content {
+    background: linear-gradient(145deg, var(--mid-space), var(--dark-space));
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    width: 90%;
+    max-width: 900px; /* Максимальная ширина */
+    max-height: 90vh; /* Максимальная высота */
+    overflow-y: auto; /* Прокрутка, если контент не помещается */
+    position: relative;
+    padding: 2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.3s ease-out;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--light-text);
+    cursor: pointer;
+    transition: color var(--transition-speed) ease;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    color: var(--accent);
+}
+
+/* Стили для содержимого модального окна */
+.modal-product-image-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.modal-main-image-wrapper {
+    width: 100%;
+    height: 300px; /* Фиксированная высота для основного изображения */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark-space);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.modal-main-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Показывает все изображение целиком */
+    border-radius: 5px;
+}
+
+.modal-image-thumbnails-wrapper {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) var(--dark-space);
+}
+
+.modal-image-thumbnails-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.modal-image-thumbnails-wrapper::-webkit-scrollbar-track {
+    background: var(--dark-space);
+}
+
+.modal-image-thumbnails-wrapper::-webkit-scrollbar-thumb {
+    background-color: var(--secondary);
+    border-radius: 3px;
+}
+
+.modal-thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity var(--transition-speed) ease, border-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    border: 2px solid transparent;
+    flex-shrink: 0;
+    opacity: 0.7;
+}
+
+.modal-thumbnail:hover,
+.modal-thumbnail.active {
+    opacity: 1;
+    border-color: var(--secondary);
+    transform: scale(1.05);
+}
+
+.modal-product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-product-title {
+    font-size: 1.8rem;
     color: var(--light-text);
     margin-bottom: 1rem;
 }
 
-.product-description {
+.modal-product-status-price {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.modal-product-status {
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background-color: var(--accent);
+    color: #000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.status-available .modal-product-status {
+    background-color: rgba(46, 204, 113, 0.9);
+    color: #000;
+}
+
+.status-limited .modal-product-status {
+    background-color: rgba(231, 76, 60, 0.9);
+    color: white;
+}
+
+.modal-product-price {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--accent);
+}
+
+.modal-product-description {
     color: var(--mid-text);
     line-height: 1.6;
     margin-bottom: 1.5rem;
-    flex-grow: 1; /* Растягиваем на оставшееся место */
 }
 
-.product-specs {
+.modal-product-specs {
     margin: 1rem 0;
     padding: 1rem;
-    background-color: rgba(26, 31, 58, 0.5); /* Фон для спецификаций */
+    background-color: rgba(26, 31, 58, 0.5);
     border-radius: 10px;
-    border-left: 4px solid var(--primary); /* Акцент */
+    border-left: 4px solid var(--primary);
 }
 
-.product-specs h4 {
+.modal-product-specs h4 {
     color: var(--primary);
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
 }
 
-.product-specs ul {
+.modal-product-specs ul {
     list-style: none;
     padding-left: 0;
 }
 
-.product-specs li {
+.modal-product-specs li {
     color: var(--light-text);
     margin-bottom: 0.4rem;
     font-size: 0.95rem;
@@ -291,12 +411,12 @@
     justify-content: space-between;
 }
 
-.product-specs li strong {
+.modal-product-specs li strong {
     color: var(--accent);
     margin-right: 0.5rem;
 }
 
-.delivery-info {
+.modal-delivery-info {
     color: var(--mid-text);
     margin-bottom: 1.5rem;
     font-size: 0.9rem;
@@ -305,15 +425,51 @@
     gap: 0.3rem;
 }
 
-.delivery-info i {
+.modal-delivery-info i {
     margin-right: 0.5rem;
     color: var(--secondary);
 }
 
-.product-contact-btn {
+.modal-product-contact-btn {
     width: 100%;
     text-align: center;
-    margin-top: auto; /* Прижимаем кнопку к низу */
+    align-self: center;
+    margin-top: 1rem;
+    padding: 0.8rem 2rem; /* Увеличиваем паддинги кнопки */
+    font-size: 1rem; /* Увеличиваем размер шрифта кнопки */
+}
+
+/* Анимации для модального окна */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 768px) {
+    .product-modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .modal-main-image-wrapper {
+        height: 250px;
+    }
+
+    .modal-product-title {
+        font-size: 1.6rem;
+    }
+
+    .modal-product-status-price {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
 }
 
 /* Уникальная секция "Doručení" */
@@ -411,30 +567,12 @@
         gap: 2rem;
     }
 
-    .product-image-container {
-        padding-bottom: 65%; /* Немного больше высота для изображений на мобильных */
-    }
-
-    .main-image-wrapper {
-        height: 65%; /* Соответственно уменьшаем высоту основного изображения */
-    }
-
-    .image-thumbnails-wrapper {
-        height: 35%; /* Увеличиваем высоту миниатюр */
-        padding: 0.3rem 0;
-    }
-
-    .thumbnail {
-        width: 50px; /* Уменьшаем размер миниатюр */
-        height: 50px;
-    }
-
-    .product-content {
-        padding: 1.5rem;
+    .product-summary-content {
+        padding: 1.2rem;
     }
 
     .product-title {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
     }
 
     .delivery-options {
@@ -451,37 +589,25 @@
         font-size: 2.2rem;
     }
 
-    .product-image-container {
-        padding-bottom: 70%; /* Еще больше высота */
-    }
-
-    .main-image-wrapper {
-        height: 60%;
-    }
-
-    .image-thumbnails-wrapper {
-        height: 40%;
-    }
-
-    .thumbnail {
-        width: 45px; /* Еще меньше миниатюры */
-        height: 45px;
-        margin: 0 0.2rem; /* Уменьшаем отступы между миниатюрами */
-    }
-
-    .product-content {
-        padding: 1.2rem;
+    .product-summary-content {
+        padding: 1rem;
     }
 
     .product-title {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
 
-    .product-specs h4 {
-        font-size: 1rem;
+    .product-description-summary {
+        font-size: 0.85rem;
+        -webkit-line-clamp: 2; /* Ещё меньше строк на очень маленьких экранах */
     }
 
-    .product-specs li {
+    .product-details-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .modal-product-specs li {
         font-size: 0.9rem;
         flex-direction: column; /* Свойства и значения друг под другом */
         align-items: flex-start;
